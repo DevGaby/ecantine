@@ -1,0 +1,13 @@
+div.container#authentication {
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.fund::before {
+    content: "Credit ";
+    white-space: pre-wrap;
+}
+
+div.fund::after {
+    content: " €";
+    white-space: pre-wrap;
+}
