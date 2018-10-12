@@ -1,4 +1,4 @@
 $('.dropdownitem').click(function() {
-    console.log('salut');
-    // $('#dropdowncontent').attr('value', $('#dropdownitem').text());
+    console.log('dropdownitem ' + $('#dropdownitem').text());
+    $('#dropdowncontent').html($('#dropdownitem').html());
 })
