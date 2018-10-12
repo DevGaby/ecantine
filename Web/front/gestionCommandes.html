@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/stylesheet.css">
+        <!-- javascript -->
+        <script src="../assets/js/javascript.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+        
+        <!-- datatable CSS -->
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        
+        <title>Authentification</title>
+    </head>
+    <body>
+        <div class="container" id="">
+            <div w3-include-html="includes/header.html"></div>
+            
+
+            <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Plat</th>
+                            <th>Date de commande</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>2011/04/25</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2011/07/25</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>2009/01/12</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>2012/03/29</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2008/11/28</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>Integration Specialist</td>
+                            <td>New York</td>
+                            <td>2012/12/02</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>2012/08/06</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>2010/10/14</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td>Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>2009/09/15</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td>Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>2008/12/13</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td>Office Manager</td>
+                            <td>London</td>
+                            <td>2008/12/19</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td>Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>2013/03/03</td>
+                            <td></td>
+                        </tr>
+                        
+                     
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Plat</th>
+                            <th>Date de commande</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            <div w3-include-html="includes/footer.html"></div> 
+        </div>
+
+        <script>
+            includeHTML();
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script >
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "language": {
+                                    "lengthMenu": "Afficher _MENU_ commandes par page",
+                                    "zeroRecords": "Vide - désolé",
+                                    "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                                    "infoEmpty": "No records available",
+                                    "infoFiltered": "(filtered from _MAX_ total records)",
+                                    "search": "Rechercher",
+                                    "Next" : "Suivant",
+                                    "preview": "Précedent"
+                                }
+                });
+            } );
+        </script>
+    </body>
+</html>
