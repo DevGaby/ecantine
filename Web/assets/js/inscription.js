@@ -1,9 +1,19 @@
-// Verification que les champs sont remplis
+
+
+// console.log($('#prenom').val());
+// console.log($('#mail').val());
+// console.log($('#password').val());
+
+
+
+
+
+// Creation de la liste de recup d'infos
     $('#empty').hide;
     let listOk =[];
-    if(localStorage.getItem('list'))
+    if(localStorage.getItem('reponse'))
     {
-        listOk = JSON.parse(localStorage.getItem('list'));
+        listOk = JSON.parse(localStorage.getItem('reponse'));
     }
     else
     {
@@ -11,30 +21,40 @@
     }
 
 
-// Affichage des infos dans un tableau
+// Affichage des infos de la liste de recup
     function showReponse()
     {
         $('#reponse').empty;
         for (let i=0; i<listOk.length; i++)
         {
-            $('#reponse').append('ul class="list-group-item ">'+ listOk + i + '</ul>');
+            $('#reponse').append('<li class="list-group-item">'+ listOk[i] + '</li>');
         }
         localStorage.setItem('nom',JSON.stringify(listOk));
     };
 
 // Action du bouton valider
-    $('#btnOk').click(function()
+    $('#btnOk').click(function(event)
     {
-        console.log("Bonjour");
+        event.preventDefault();
         let nom =$('#nom').val();
-        if(nom.length>0)
-        {
-            nom.push(listOk);
-            console.log(nom);
-            showReponse();
+        //console.log(nom);
+        listOk.push(nom);
+        //console.log(listOk);
 
-        }
-       
+        let prenom =$('#prenom').val();
+        listOk.push(prenom);
+        //console.log(listOk);
+
+        let mail =$('#mail').val();
+        listOk.push(mail);
+        //console.log(listOk);
+
+        let password =$('#password').val();
+        listOk.push(password);
+        console.log(listOk);
+
+        showReponse();
+
     }
     );
    

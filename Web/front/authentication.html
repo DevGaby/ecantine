@@ -18,28 +18,37 @@
     <body>
         <div class="container">
             <div w3-include-html="./includes/header.html"></div>
+
+            <div class="row mx-5">
+                <div class="col text-center font-weight-bold">
+                    Authentification
+                </div>
+            </div>
+
             <form action="" class="m-5">
                 <div class="form-row">
                     <div class="form-group col-12">
-                        <label for="idinput1">Adresse e-mail</label>
+                        <label for="inputemail">Adresse e-mail</label>
                         <input type="email" class="form-control" id="inputemail" placeholder="placeholder">
+                        <div class="text-danger" id="notificationtemail">Email vide</div>
                     </div>
                     <div class="form-group col-12">
-                        <label for="idinput2">Mot de passe</label>
+                        <label for="inputpassword">Mot de passe</label>
                         <input type="password" class="form-control" id="inputpassword" placeholder="placeholder">
+                        <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                         <button type="submit" class="btn btn-secondary mr-1" id="buttonsignin">S'authentifier</button>
                         <button type="submit" class="btn btn-secondary" id="buttonsignup">S'inscrire</button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-3" >
+                        <a href="#" id="hrefpasswordforgotten">mot de passe oublié ?</a>
                     </div>
                 </div>
             </form>
             <div w3-include-html="./includes/footer.html"></div> 
         </div>
 
-        <!-- <script>
-            includeHTML();
-        </script> -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->

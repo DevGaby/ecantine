@@ -1,15 +1,32 @@
+$('#notificationtemail').slideUp();
+$('#notificationpassword').slideUp();
+
+$('#hrefpasswordforgotten').hide();
+
 $('#buttonsignin').click(function()
 {
     console.log('button signin clicked');
-    let inputEmail = $('#inputemail').val();
-    let inputPassword = $('#inputpassword').val();
-    if(!inputEmail)
+    
+    if($('#inputemail').val())
     {
-        console.log("email is empty");
+        $('#notificationtemail').slideUp();  
+        
+        $('#hrefpasswordforgotten').show();
     }
-    if(!inputPassword)
+    else
     {
-        console.log("password is password");
+        $('#notificationtemail').slideDown();
+
+        $('#hrefpasswordforgotten').hide();
+    }
+
+    if($('#inputpassword').val())
+    {
+        $('#notificationpassword').slideUp();
+    }
+    else
+    {        
+        $('#notificationpassword').slideDown();
     }
 });
 
