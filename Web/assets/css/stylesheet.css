@@ -11,3 +11,27 @@ div.fund::after {
     content: " €";
     white-space: pre-wrap;
 }
+
+.solde-container{
+    text-align: end;
+}
+
+.cadre{
+    padding: 15px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+}
+
+.deletteButton{
+    cursor: pointer;
+}
+
+.tab-histo{
+    justify-content: center;
+    margin: auto auto 15px;
+    text-align: center;
+}
+
+.tab-histo div{
+    border: 1px solid #d0d0d0;
+}
