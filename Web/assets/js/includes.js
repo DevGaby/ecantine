@@ -1,4 +1,6 @@
-includeHTML();
+window.onload = function () {
+  includeHTML();
+}
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
