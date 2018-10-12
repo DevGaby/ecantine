@@ -7,9 +7,10 @@
 
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
-
         <!-- CSS -->
         <link rel="stylesheet" href="../assets/css/stylesheet.css">
+        <!-- javascript -->
+        <script src="../assets/js/javascript.js"></script>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -18,6 +19,7 @@
     </head>
     <body>
         <div class="container" id="authentication">
+            <div w3-include-html="includes/header.html"></div>
             <form action="">
                 <div class="form-row">
                     <div class="form-group col-12">
@@ -34,8 +36,12 @@
                     </div>
                 </div>
             </form>
+            <div w3-include-html="includes/footer.html"></div> 
         </div>
 
+        <script>
+            includeHTML();
+        </script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
