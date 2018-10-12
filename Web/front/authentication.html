@@ -9,8 +9,6 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
         <!-- CSS -->
         <link rel="stylesheet" href="../assets/css/stylesheet.css">
-        <!-- javascript -->
-        <script src="../assets/js/javascript.js"></script>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -18,9 +16,9 @@
         <title>Authentification</title>
     </head>
     <body>
-        <div class="container" id="authentication">
-            <div w3-include-html="includes/header.html"></div>
-            <form action="">
+        <div class="container">
+            <div w3-include-html="./includes/header.html"></div>
+            <form action="" class="m-5">
                 <div class="form-row">
                     <div class="form-group col-12">
                         <label for="idinput1">Adresse e-mail</label>
@@ -31,17 +29,17 @@
                         <input type="password" class="form-control" id="idinput2" placeholder="placeholder">
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-secondary mr-1">S'authentifier</button>
-                        <button type="submit" class="btn btn-secondary">S'inscrire</button>
+                        <button type="submit" class="btn btn-secondary mr-1" id="buttonsignin">S'authentifier</button>
+                        <button type="submit" class="btn btn-secondary" id="buttonsignup">S'inscrire</button>
                     </div>
                 </div>
             </form>
-            <div w3-include-html="includes/footer.html"></div> 
+            <div w3-include-html="./includes/footer.html"></div> 
         </div>
 
-        <script>
+        <!-- <script>
             includeHTML();
-        </script>
+        </script> -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
@@ -49,5 +47,9 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
+        <!-- javascript -->
+        <script src="../assets/js/includes.js"></script>
+        <script src="../assets/js/authentication.js"></script>
     </body>
 </html>
