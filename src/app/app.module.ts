@@ -10,6 +10,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ModificationprofilComponent } from './modificationprofil/modificationpr
     ProfilComponent,
     HeaderComponent,
     FooterComponent,
-    ModificationprofilComponent
+    ModificationprofilComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

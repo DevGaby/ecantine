@@ -1,5 +1,10 @@
-<h2> Modification de votre profil </h2>
-<form action="" class="m-5" (ngSubmit)="onSubmit(f)" #f="ngForm">
+<div class="row mx-5">
+    <div class="col text-center font-weight-bold">
+        Modification de votre profil
+    </div>
+  </div>
+  
+<form action="" class="m-5" (ngSubmit)="onSubmit(modif)" #f="ngForm">
     <div class="form-row">
         <div class="form-group col-12">
             <input type="text" name="name" value="DUPONT"  placeholder="DUPONT" disabled="disabled" ngModel/>

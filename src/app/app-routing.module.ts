@@ -6,6 +6,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 const routes: Routes = [
   { path: 'form', component: FormsModule },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'gestioncommandes', component : GestioncommandesComponent },
   { path: 'profil', component : ProfilComponent },
   { path: 'modificationprofil', component :  ModificationprofilComponent},
-
+  { path: 'authentication', component: AuthenticationComponent }
 ];
 
 @NgModule({
