@@ -11,11 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 
-const routes = [
-  { path: 'form', component: FormsModule },
-  { path: 'inscription', component: InscriptionComponent },
-
-]
 @NgModule({
   declarations: [
     AppComponent,
