@@ -3,30 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { InscriptionComponent } from './inscription/inscription.component';
-=======
-import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.component';
-import { ProfilComponent } from './profil/profil.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
->>>>>>> 1ca7bb15bd09ba841085890262ac1bf62929578a
+import { FormsModule } from '@angular/forms';
+
+const routes = [
+  { path: 'form', component: FormsModule },
+  { path: 'inscription', component: InscriptionComponent },
+
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    InscriptionComponent
-=======
-    GestioncommandesComponent,
-    ProfilComponent,
-    HeaderComponent,
-    FooterComponent
->>>>>>> 1ca7bb15bd09ba841085890262ac1bf62929578a
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

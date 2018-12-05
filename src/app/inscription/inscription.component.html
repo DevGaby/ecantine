@@ -1,3 +1,23 @@
-<p>
-  inscription works!
-</p>
+<form action="" class="m-5" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-row">
+        <div class="form-group col-12">
+            <input type="text" class="form-control" id="inputname" placeholder="Nom" ngModel>
+            <div class="text-danger" id="notificationtname">Nom vide</div>
+        </div>
+        <div class="form-group col-12">
+            <input type="text" class="form-control" id="inputfistname" placeholder="Prénom" ngModel>
+            <div class="text-danger" id="notificationtfirstname">Prenom vide</div>
+        </div>
+        <div class="form-group col-12">
+            <input type="email" class="form-control" id="inputemail" placeholder="e-mail" ngModel>
+            <div class="text-danger" id="notificationtemail">Email vide</div>
+        </div>
+        <div class="form-group col-12">
+            <input type="password" class="form-control" id="inputpassword" placeholder="mot de passe" ngModel>
+            <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" id="buttonsignup">S'inscrire</button>
+        </div>
+    </div>
+</form>
