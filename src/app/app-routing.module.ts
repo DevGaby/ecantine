@@ -7,12 +7,14 @@ import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.c
 import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 const routes: Routes = [
   { path: 'form', component: FormsModule },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'gestioncommandes', component : GestioncommandesComponent },
   { path: 'profil', component : ProfilComponent },
+  { path: 'authentication', component: AuthenticationComponent }
 ];
 
 @NgModule({

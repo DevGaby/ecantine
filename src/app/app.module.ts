@@ -9,6 +9,7 @@ import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.c
 import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     GestioncommandesComponent,
     ProfilComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

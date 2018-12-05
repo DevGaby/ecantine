@@ -1,4 +1,4 @@
-$('#notificationtemail').slideUp();
+$('#notificationemail').slideUp();
 $('#notificationpassword').slideUp();
 
 $('#hrefpasswordforgotten').hide();
