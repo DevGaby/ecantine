@@ -9,6 +9,7 @@ import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.c
 import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 
 
@@ -20,12 +21,13 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     ProfilComponent,
     HeaderComponent,
     FooterComponent,
+    ModificationprofilComponent,
     AuthenticationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
