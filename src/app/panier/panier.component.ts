@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-//import { PlatService } from '../services/plat.service';
 import { from } from 'rxjs';
+
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-panier',
@@ -9,11 +10,10 @@ import { from } from 'rxjs';
 })
 export class PanierComponent implements OnInit {
   plats :object[];
-  //constructor(private platrService: PlatService) { }
-  constructor () {}
+  constructor (private userService: UserService) {}
 
   ngOnInit() {
-    this.getPlats();
+    //this.getPlats();
     
   }
 
