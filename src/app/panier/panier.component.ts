@@ -13,7 +13,7 @@ export class PanierComponent implements OnInit {
   constructor () {}
 
   ngOnInit() {
-    this.getPlats();
+    //this.getPlats();
     
   }
 
