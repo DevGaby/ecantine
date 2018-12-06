@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     HeaderComponent,
     FooterComponent,
     ModificationprofilComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
