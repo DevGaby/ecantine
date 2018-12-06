@@ -13,7 +13,7 @@ const httpOptions = {
 };
 
 //Default url for users' table
-const defaultUserUrl = 'https://test-f1496.firebaseio.com//users';
+const defaultUserUrl = 'https://beerangular.firebaseio.com/users';
 
 @Injectable({
   providedIn: 'root'
