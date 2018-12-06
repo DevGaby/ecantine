@@ -29,9 +29,16 @@ export class UserService {
   //Add a user in users' table
   addUser(user: User)
   {
-    this.httpClient
+    return this.httpClient
       .post(defaultUserUrl + '.json', user, httpOptions) 
-      .subscribe(data => console.log('addUser success'));
+      .pipe(
+        tap(data => 
+          {
+            data;
+            console.log('addUser success');
+          }),
+        catchError(this.handleError('addUser', []))
+      );
   }
   //#endregion CREATE
 
@@ -68,27 +75,32 @@ export class UserService {
   //#endregion READ
 
   //#region UPDATE
-  updateUser(user: User)
+  updateUser(user: User): Observable<User>
   {
-    this.httpClient
-      .patch(defaultUserUrl + '/' + user.id + '.json', user)
-      .subscribe(
-       () => {
-          console.log('updateUser success');
-      });
+    return this.httpClient
+      .patch<User>(defaultUserUrl + '/' + user.id + '.json', user)
+      .pipe(
+        tap(data => 
+          {
+            console.log('updateUser success');
+          }),
+        catchError(this.handleError<User>('updateUser'))
+      );
   }
   //#endregion UPDATE
 
   //#region DELETE
-  deleteUser(id: string)
+  deleteUser(id: string): Observable<User>
   {
-    this.httpClient
-      .delete(defaultUserUrl + '/' + id + '.json') 
-      .subscribe( 
-        () => { 
-          console.log('deleteUser success'); 
-      });
-
+    return this.httpClient
+      .delete<User>(defaultUserUrl + '/' + id + '.json') 
+      .pipe(
+        tap(data => 
+          {
+            console.log('deleteUser success');
+          }),
+        catchError(this.handleError<User>('deleteUser'))
+      );
   }
   //#endregion DELETE
 
