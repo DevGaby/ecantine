@@ -20,6 +20,11 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 })
 export class UserService {
 
+  user:object [] = [
+    new User ("1","aa@aa.com", "1234", "Camille","GARNIER",20),
+    new User ("2","aa@aa.com", "1234", "Frederic","DUPONT",0),
+  ]
+
   constructor(
     private httpClient: HttpClient
   )
