@@ -6,7 +6,6 @@ export class User {
         public firstname: string,
         public lastname: string,
         public fund: number
-<<<<<<< HEAD
     ) {
         this.id = id;
         this.email = email;
@@ -16,7 +15,3 @@ export class User {
         this.fund = fund;
     }
 }
-=======
-    ) {}
-}
->>>>>>> 79fc6d530672e81ccbbab2e869233b710fdb86d1
