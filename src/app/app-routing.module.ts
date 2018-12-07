@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'authentication', component: AuthenticationComponent },
   { path: 'panier', component: PanierComponent},
   { path: 'weekly', component: WeeklyComponent },
+  { path: 'managefund', component: ManagefundComponent},
   { path: '', component: WeeklyComponent }
 ];
 

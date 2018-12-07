@@ -3,6 +3,8 @@ import { from } from 'rxjs';
 
 import { UserService } from '../services/user.service';
 
+import { User } from '../models/user';
+
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
@@ -12,7 +14,7 @@ export class PanierComponent implements OnInit {
   
   constructor (private userService: UserService) {}
 
-  usersTest : Object [];
+  usersTest : User[];
 
   /* param = idUser
   L'ID de l'utilisateur connecté
