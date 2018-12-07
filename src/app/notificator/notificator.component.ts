@@ -13,8 +13,8 @@ import { Message } from '../models/message';
 })
 export class NotificatorComponent implements OnInit {
 
-  source: Observable<number>;
-  subscribe: Subscription;
+  // source: Observable<number>;
+  // subscribe: Subscription;
 
   constructor(
     private mesageService: MessageService
@@ -22,11 +22,11 @@ export class NotificatorComponent implements OnInit {
 
   ngOnInit() {
     this.messages = this.mesageService.getMessages();
-    this.source = timer(0, 5000);
-    this.subscribe = this.source.subscribe(value =>
-      {
-        this.mesageService.sendMessage(new Message(value, 'success'));
-      });
+    // this.source = timer(0, 5000);
+    // this.subscribe = this.source.subscribe(value =>
+    //   {
+    //     this.mesageService.sendMessage(new Message(value, 'success'));
+    //   });
   }
 
   messages: any;

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 
+import { Message } from '../models/message';
+import { MessageService } from '../services/message.service';
+
 @Component({
   selector: 'app-managefund',
   templateUrl: './managefund.component.html',
@@ -11,7 +14,8 @@ export class ManagefundComponent implements OnInit {
   users: User[];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -29,6 +33,10 @@ export class ManagefundComponent implements OnInit {
 
         console.log(this.users);
       });
+
+      this.userService
+      .getUser('-LT73AzCOG7QvnehfLRw')
+      .subscribe(data => console.log(Object.values(data)[0]));
   }
 
   onSubmit(form)
@@ -75,6 +83,7 @@ export class ManagefundComponent implements OnInit {
     .subscribe(data =>
       {
         this.users[index] = user;
+        this.messageService.sendMessage(new Message('update done', 'success'));
       });
   }
 
@@ -84,7 +93,7 @@ export class ManagefundComponent implements OnInit {
 
     if(isNaN(Number(fundValue)))
     {
-      alert('fund is not a number !');
+      this.messageService.sendMessage(new Message('fundvalue is not a number', 'danger'));
       return;
     }
 
@@ -97,6 +106,7 @@ export class ManagefundComponent implements OnInit {
     .subscribe(data =>
       {
         this.users[index] = user;
+        this.messageService.sendMessage(new Message('update done', 'success'));
       });
   }
 }
