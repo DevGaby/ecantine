@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { PanierComponent } from './panier/panier.component';
+import { WeeklyComponent } from './weekly/weekly.component';
+import { ManagefundComponent } from './managefund/managefund.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { PanierComponent } from './panier/panier.component';
     FooterComponent,
     ModificationprofilComponent,
     AuthenticationComponent,
-    PanierComponent
+    PanierComponent,
+    WeeklyComponent,
+    ManagefundComponent
   ],
   imports: [
     BrowserModule,
