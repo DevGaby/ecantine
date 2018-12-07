@@ -20,19 +20,33 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 })
 export class UserService {
 
-  user:object [] = [
+  users:object [] = 
+  [
     new User ("1","aa@aa.com", "1234", "Camille","GARNIER",20),
-    new User ("2","aa@aa.com", "1234", "Frederic","DUPONT",0),
+    new User ("2","bb@bb.com", "1234", "Frederic","DUPONT",0),
   ]
 
-  constructor(
-    private httpClient: HttpClient
-  )
-  { }
+  constructor ( ) { }
+  //private httpClient: HttpClient
+
+  //#region TEST
+  // Methode de test d'affichage dynamique 
+
+  /* getUserTest(idUser: string)
+  {
+    for( var i= 0; i<this.users.length; i++)
+    {
+      if (idUser === i[0])
+      {
+        console.log(this.users[i]);
+      }
+    }
+  } */
+  
 
   //#region CREATE
   //Add a user in users' table
-  addUser(user: User)
+ /*  addUser(user: User)
   {
     return this.httpClient
       .post(defaultUserUrl + '.json', user, httpOptions) 
@@ -44,12 +58,12 @@ export class UserService {
           }),
         catchError(this.handleError('addUser', []))
       );
-  }
+  } */
   //#endregion CREATE
 
   //#region READ
   //Get user where key equals id
-  getUser(id: string): Observable<User[]>
+  /* getUser(id: string): Observable<User[]>
   {
     return this.httpClient
       .get<User[]>(defaultUserUrl + '/' + id + '.json')
@@ -62,9 +76,9 @@ export class UserService {
         catchError(this.handleError('getUser', []))
       );
   }
-
+ */
   //Get all user in users' table
-  getUsers(): Observable<User[]>
+  /* getUsers(): Observable<User[]>
   {
     return this.httpClient
       .get<User[]>(defaultUserUrl + '.json')
@@ -76,11 +90,11 @@ export class UserService {
           }),
         catchError(this.handleError('getUsers', []))
       );
-  }
+        }*/
   //#endregion READ
 
   //#region UPDATE
-  updateUser(user: User): Observable<User>
+  /* updateUser(user: User): Observable<User>
   {
     return this.httpClient
       .patch<User>(defaultUserUrl + '/' + user.id + '.json', user)
@@ -92,10 +106,10 @@ export class UserService {
         catchError(this.handleError<User>('updateUser'))
       );
   }
-  //#endregion UPDATE
+   *///#endregion UPDATE
 
   //#region DELETE
-  deleteUser(id: string): Observable<User>
+ /*  deleteUser(id: string): Observable<User>
   {
     return this.httpClient
       .delete<User>(defaultUserUrl + '/' + id + '.json') 
@@ -107,7 +121,7 @@ export class UserService {
         catchError(this.handleError<User>('deleteUser'))
       );
   }
-  //#endregion DELETE
+  */ //#endregion DELETE
 
   /*
    * Handle Http operation that failed.
@@ -115,7 +129,7 @@ export class UserService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  /* private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
@@ -124,5 +138,5 @@ export class UserService {
       // Let the app keep running by returning an empty result.
       return (error);
     };
-  }
+  } */
 }

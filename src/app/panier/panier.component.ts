@@ -9,18 +9,51 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  plats :object[];
+  
   constructor (private userService: UserService) {}
 
+  usersTest : Object [];
+
+  /* param = idUser
+  L'ID de l'utilisateur connecté
+  */
+  
   ngOnInit() {
-    //this.getPlats();
-    
+    this.getUserTest()
   }
 
-  getPlats(): void {
-    // On recupere tous les objets plat et les donnees qui les constituent
-    /* this.platService.getPlats()
-    .subscribe(data=>this.plats = Object.values(data)); */
+  // Recupere tous les users
+  getUserTest() : void {
+    this.usersTest = this.userService.users;
+    //console.log(this.usersTest);
   }
 
+  // Recupere l'utilisateur associé a id passée en attribut
+  getUserTestById(param: string)
+  {
+    this.usersTest = this.userService.users;
+    for( var i= 0; i<this.usersTest.length; i++)
+    {
+      if (this.usersTest[i] === this.usersTest[param])
+      { 
+        console.log("Voici l'utilisateur : "+this.usersTest[i].firstname);
+        return this.usersTest[i].firstname;
+      }
+    }
+  }
+
+  // Recupere la cagnotte de l'utilisateur associé a id passée en attribut
+  getUserFundById(param: string)
+  {
+    this.usersTest = this.userService.users;
+    for( var i= 0; i<this.usersTest.length; i++)
+    {
+      if (this.usersTest[i] === this.usersTest[param])
+      { 
+        console.log("Voici l'utilisateur : "+this.usersTest[i].fund);
+        return this.usersTest[i].fund;
+      }
+    }
+  }
 }
+
