@@ -6,5 +6,12 @@ export class User {
         public firstname: string,
         public lastname: string,
         public fund: number
-    ) {}
+    ) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fund = fund;
+    }
 }

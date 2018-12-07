@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { PanierComponent } from './panier/panier.component';
+import { MenuHebdoAdminComponent } from './menu-hebdo-admin/menu-hebdo-admin.component';
+import { NavDroiteComponent } from './nav-droite/nav-droite.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { PanierComponent } from './panier/panier.component';
     FooterComponent,
     ModificationprofilComponent,
     AuthenticationComponent,
-    PanierComponent
+    PanierComponent,
+    MenuHebdoAdminComponent,
+    NavDroiteComponent
   ],
   imports: [
     BrowserModule,
