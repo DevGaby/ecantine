@@ -9,6 +9,8 @@ import { ModificationprofilComponent } from './modificationprofil/modificationpr
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { PanierComponent } from './panier/panier.component';
 import {MenuHebdoAdminComponent} from './menu-hebdo-admin/menu-hebdo-admin.component';
+import { WeeklyComponent } from './weekly/weekly.component';
+import { ManagefundComponent } from './managefund/managefund.component';
 
 const routes: Routes = [
   { path: 'form', component: FormsModule },
@@ -18,7 +20,10 @@ const routes: Routes = [
   { path: 'modificationprofil', component :  ModificationprofilComponent},
   { path: 'authentication', component: AuthenticationComponent },
   { path: 'panier', component: PanierComponent},
-  { path: 'menuHebdo', component: MenuHebdoAdminComponent}
+  { path: 'menuHebdo', component: MenuHebdoAdminComponent},
+  { path: 'weekly', component: WeeklyComponent },
+  { path: 'managefund', component: ManagefundComponent},
+  { path: '', component: WeeklyComponent }
 ];
 
 @NgModule({

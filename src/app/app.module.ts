@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { GestioncommandesComponent } from './gestioncommandes/gestioncommandes.component';
 import { ProfilComponent } from './profil/profil.component';
@@ -14,6 +15,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { PanierComponent } from './panier/panier.component';
 import { MenuHebdoAdminComponent } from './menu-hebdo-admin/menu-hebdo-admin.component';
 import { NavDroiteComponent } from './nav-droite/nav-droite.component';
+import { WeeklyComponent } from './weekly/weekly.component';
+import { ManagefundComponent } from './managefund/managefund.component';
 
 
 @NgModule({
@@ -28,12 +31,15 @@ import { NavDroiteComponent } from './nav-droite/nav-droite.component';
     AuthenticationComponent,
     PanierComponent,
     MenuHebdoAdminComponent,
-    NavDroiteComponent
+    NavDroiteComponent,
+    WeeklyComponent,
+    ManagefundComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
