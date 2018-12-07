@@ -61,6 +61,7 @@ export class UserService {
         catchError(this.handleError('getUser', []))
       );
   }
+  
   //Get all user in users' table
   getUsers(): Observable<User[]>
   {
