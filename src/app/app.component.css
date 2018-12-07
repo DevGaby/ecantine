@@ -1,3 +1,7 @@
 .container{
     background-color: #ffdc80;
 }
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
