@@ -34,7 +34,7 @@ export class PanierComponent implements OnInit {
     this.usersTest = this.userService.users;
     for( var i= 0; i<this.usersTest.length; i++)
     {
-      if (this.usersTest[i] === this.usersTest[param])
+      if (this.usersTest[i].id === this.usersTest[param])
       { 
         console.log("Voici l'utilisateur : "+this.usersTest[i].firstname);
         return this.usersTest[i].firstname;
