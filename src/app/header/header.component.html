@@ -1,32 +1,34 @@
 <div class="row pb-5">
-  <div class="col px-0">
-          <nav class="navbar  navbar-expand-lg navbar-dark" style="background-color: #911a1a;">     
-              <div class=" navbar-collapse" id="navbarTogglerDemo02">
-                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item">
-                      <a class="nav-link" [routerLink]="['/weekly']">Accueil <span class="sr-only"></span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" [routerLink]="['/authentication']">Connexion</a>
+    <div class="col px-0">
+        <nav class="navbar  navbar-expand-lg navbar-dark" style="background-color: #868A92;">
+            <div class=" navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="weeklymenu.html">Accueil <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/authentication']">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/authentication']">Connexion</a>
                   </li>
                   <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/modificationprofil']">Profil</a>
                     </li>
-                  </ul>
-                  <div class="panier" style="text-align:right;">
-                    <a> <img src="../../assets/img/shopping-basket.png" alt="icon_panier"
-                        style="width: 25px;" [routerLink]="['/panier']"> 
+                </ul>
+                <div class="panier" >
+                    <a> <img src="../../assets/img/shopping-basket.png" alt="icon_panier" style="width: 25px;"
+                            [routerLink]="['/panier']">
                     </a>
-                           
                 </div>
-                  <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" />
-                      <button class="btn  my-2 my-sm-0" type="submit">Rechercher</button>
-                  </form>
-              </div>
-          </nav>
-  </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" />
+                    <button class="btn  my-2 my-sm-0" type="submit">Rechercher</button>
+                </form>
+            </div>
+        </nav>
+    </div>
 </div>
