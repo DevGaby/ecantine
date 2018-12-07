@@ -26,9 +26,10 @@ export class UserService {
     new User ("2","bb@bb.com", "1234", "Frederic","DUPONT",0),
   ]
 
-  constructor ( ) { }
-  private httpClient: HttpClient 
-
+  constructor (
+    private httpClient: HttpClient 
+  ) { }
+  
   //#region CREATE
   //Add a user in users' table
   addUser(user: User): Observable<User>
