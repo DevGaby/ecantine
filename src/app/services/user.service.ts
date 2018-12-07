@@ -32,17 +32,17 @@ export class UserService {
 
   //#region CREATE
   //Add a user in users' table
-  addUser(user: User)
+  addUser(user: User): Observable<User>
   {
     return this.httpClient
-      .post(defaultUserUrl + '.json', user, httpOptions) 
+      .post<User>(defaultUserUrl + '.json', user, httpOptions) 
       .pipe(
         tap(data => 
           {
             data;
             console.log('addUser success');
           }),
-        catchError(this.handleError('addUser', []))
+        catchError(this.handleError('addUser'))
       );
   }
   //#endregion CREATE
