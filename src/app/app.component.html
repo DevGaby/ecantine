@@ -2,15 +2,13 @@
 <!-- Notre header -->
 <app-header></app-header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <router-outlet></router-outlet>      
+<div class="container-fluid">
+  <div class="row ml-5">
+    <div class="col-9 ">
+      <router-outlet></router-outlet>
     </div>
-  </div>
-  <div class="row fixed-top">
-    <div class="col-12">
-      <app-notificator></app-notificator>
+    <div class="col-3">
+        <app-nav-droite></app-nav-droite>
     </div>
   </div>
 </div>
