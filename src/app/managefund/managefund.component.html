@@ -10,15 +10,15 @@
         <th>Operations</th>
     </thead>
     <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users; let i = index">
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.fund }}</td>
             <td>
                 <input type="number" class="form-control" aria-label="Text input with dropdown button" #fundValue size="3">
                 <div class="d-flex flex-row-reverse mt-1">
-                    <button type="button" class="btn btn-success" (click)="addFund(user, fundValue.value)">Add</button>
-                    <button type="button" class="btn btn-danger" (click)="substractFund(user, fundValue.value)">Remove</button>
+                    <button type="button" class="btn btn-success" (click)="addFund(user, fundValue.value, i)">Add</button>
+                    <button type="button" class="btn btn-danger" (click)="substractFund(user, fundValue.value, i)">Remove</button>
                 </div>
             </td>
         </tr>

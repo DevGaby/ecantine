@@ -15,6 +15,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { PanierComponent } from './panier/panier.component';
 import { WeeklyComponent } from './weekly/weekly.component';
 import { ManagefundComponent } from './managefund/managefund.component';
+import { NotificatorComponent } from './notificator/notificator.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ManagefundComponent } from './managefund/managefund.component';
     AuthenticationComponent,
     PanierComponent,
     WeeklyComponent,
-    ManagefundComponent
+    ManagefundComponent,
+    NotificatorComponent
   ],
   imports: [
     BrowserModule,

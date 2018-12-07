@@ -19,6 +19,7 @@ export class ManagefundComponent implements OnInit {
     .getUsers()
     .subscribe(data => 
       {
+        console.log(data);
         this.users = Object.values(data);
         let keys = Object.keys(data);
         for(let i = 0; i < this.users.length; i++)
@@ -56,30 +57,46 @@ export class ManagefundComponent implements OnInit {
       });
   }
 
-  addFund(user: User, fundValue: number)
+  addFund(user: User, fundValue: number, index: number)
   {
-    console.log('edit clicked :\n' +
-    'id : ' + user.id + '\n' +
-    'fundvalue : ' + fundValue
-    );
+    console.log('addFund called');
 
-    console.log('user.fund isNaN : ' + isNaN(user.fund));
-    console.log('fundValue isNaN : ' + isNaN(fundValue));
-    let newFundValue = user.fund + fundValue;
-    console.log('new Fund value : ' + newFundValue);
+    if(isNaN(Number(fundValue)))
+    {
+      alert('fund is not a number !');
+      return;
+    }
+    let newFundValue = Number(user.fund) + Math.abs(Number(fundValue));
+
+    user.fund = newFundValue;
+
+    this.userService
+    .updateUser(user)
+    .subscribe(data =>
+      {
+        this.users[index] = user;
+      });
   }
 
-  substractFund(user: User, fundValue: number)
+  substractFund(user: User, fundValue: number, index: number)
   {
-    console.log('edit clicked :\n' +
-    'id : ' + user.id + '\n' +
-    'fundvalue : ' + fundValue
-    );
+    console.log('substractFund called');
 
-    console.log('user.fund isNaN : ' + isNaN(user.fund));
-    console.log('fundValue isNaN : ' + isNaN(fundValue));
+    if(isNaN(Number(fundValue)))
+    {
+      alert('fund is not a number !');
+      return;
+    }
 
-    let newFundValue = Math.max(0, user.fund - fundValue);
-    console.log('new Fund value : ' + newFundValue);
+    let newFundValue = Math.max(0, Number(user.fund) - Math.abs(Number(fundValue)));
+    
+    user.fund = newFundValue;
+
+    this.userService
+    .updateUser(user)
+    .subscribe(data =>
+      {
+        this.users[index] = user;
+      });
   }
 }
