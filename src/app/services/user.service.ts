@@ -21,7 +21,7 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 })
 export class UserService {
 
-  users:object [] = 
+  users: User[] = 
   [
     new User ("1aze","aa@aa.com", "1234", "Camille","GARNIER",20),
     new User ("2","bb@bb.com", "1234", "Frederic","DUPONT",0),
@@ -41,7 +41,7 @@ export class UserService {
             data;
             console.log('addUser success');
           }),
-        catchError(this.handleError('addUser'))
+        catchError(this.handleError<User>('addUser'))
       );
   }
   //#endregion CREATE

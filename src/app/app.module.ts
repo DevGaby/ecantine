@@ -13,8 +13,11 @@ import { FooterComponent } from './footer/footer.component';
 import { ModificationprofilComponent } from './modificationprofil/modificationprofil.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { PanierComponent } from './panier/panier.component';
+import { MenuHebdoAdminComponent } from './menu-hebdo-admin/menu-hebdo-admin.component';
+import { NavDroiteComponent } from './nav-droite/nav-droite.component';
 import { WeeklyComponent } from './weekly/weekly.component';
 import { ManagefundComponent } from './managefund/managefund.component';
+import { NotificatorComponent } from './notificator/notificator.component';
 
 
 @NgModule({
@@ -28,8 +31,11 @@ import { ManagefundComponent } from './managefund/managefund.component';
     ModificationprofilComponent,
     AuthenticationComponent,
     PanierComponent,
+    MenuHebdoAdminComponent,
+    NavDroiteComponent,
     WeeklyComponent,
-    ManagefundComponent
+    ManagefundComponent,
+    NotificatorComponent
   ],
   imports: [
     BrowserModule,
