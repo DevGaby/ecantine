@@ -13,6 +13,7 @@ const httpOptions = {
 };
 
 //Default url for users' table
+// Pour la voir rajouter.json
 const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 
 @Injectable({
@@ -26,9 +27,7 @@ export class UserService {
     new User ("2","bb@bb.com", "1234", "Frederic","DUPONT",0),
   ]
 
-  constructor (
-    private httpClient: HttpClient 
-  ) { }
+  constructor ( private httpClient: HttpClient ) { }
   
   //#region CREATE
   //Add a user in users' table
