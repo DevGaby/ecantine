@@ -4,24 +4,26 @@
   </div>
 </div>
 
-<form (ngSubmit)="onSubmit(authentif)" #f="ngForm" class="m-5">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="m-5">
   <div class="form-row">
       <div class="form-group col-12">
           <label for="inputemail">Adresse e-mail</label>
-          <input type="email" name="email" class="form-control" id="inputemail" placeholder="placeholder" ngModel>
+          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="placeholder" ngModel>
           <div class="text-danger" id="notificationemail">Email vide</div>
       </div>
       <div class="form-group col-12">
           <label for="inputpassword">Mot de passe</label>
-          <input type="password" name="password" class="form-control" id="inputpassword" placeholder="placeholder" ngModel>
+          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="placeholder" ngModel>
           <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
       </div>
       <div class="col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-secondary mr-1" id="buttonsignin">S'authentifier</button>
+          <button type="submit" class="btn btn-secondary mr-1" id="buttonsignin"
+          >S'authentifier</button>
+
           <button class="btn btn-secondary" [routerLink]="['/inscription']">S'inscrire</button>
       </div>
       <div class="col-12 d-flex justify-content-end mt-3" >
-          <a href="#" id="hrefpasswordforgotten">mot de passe oublié ?</a>
+          <a href="#" id="hrefpasswordforgotten">Mot de passe oublié ?</a>
       </div>
   </div>
 </form>

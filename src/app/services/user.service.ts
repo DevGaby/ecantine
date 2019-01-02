@@ -4,6 +4,7 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user';
+import { log } from 'util';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,7 +13,7 @@ const httpOptions = {
   })
 };
 
-//Default url for users' table
+// Default url for users'table
 // Pour la voir rajouter.json
 const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 
@@ -21,22 +22,24 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 })
 export class UserService {
 
-  users: User[] = 
+  users: User[] =
   [
-    new User ("1aze","aa@aa.com", "1234", "Camille","GARNIER",20),
-    new User ("2","bb@bb.com", "1234", "Frederic","DUPONT",0),
-  ]
+    new User ('1aze', 'aa@aa.com', '1234', 'Camille', 'GARNIER', 20),
+    new User ('2', 'bb@bb.com', '1234', 'Frederic', 'DUPONT', 0),
+  ];
+
+  emails: User[];
 
   constructor ( private httpClient: HttpClient ) { }
-  
+
   //#region CREATE
-  //Add a user in users' table
+  // Add a user in users' table
   addUser(user: User): Observable<User>
   {
     return this.httpClient
       .post<User>(defaultUserUrl + '.json', user, httpOptions) 
       .pipe(
-        tap(data => 
+        tap(data =>
           {
             data;
             console.log('addUser success');
@@ -47,7 +50,7 @@ export class UserService {
   //#endregion CREATE
 
   //#region READ
-  //Get user where key equals id
+  // Get user where key equals id
   getUser(id: string): Observable<User[]>
   {
     return this.httpClient
@@ -61,14 +64,14 @@ export class UserService {
         catchError(this.handleError('getUser', []))
       );
   }
-  
-  //Get all user in users' table
+
+  // Get all user in users' table
   getUsers(): Observable<User[]>
   {
     return this.httpClient
-      .get<User[]>(defaultUserUrl + '.json')
+      .get<User[]>(defaultUserUrl + '/' +  '.json')
       .pipe(
-        tap(data => 
+        tap(data =>
           {
             data;
             console.log('getUsers success');
