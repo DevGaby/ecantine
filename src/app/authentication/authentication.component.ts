@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-authentication',
@@ -10,6 +13,13 @@ export class AuthenticationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form:NgForm)
+  {
+    console.log(form.value);
+
+    console.log($('#inputemail)'));
   }
 
 }

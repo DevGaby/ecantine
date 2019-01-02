@@ -4,6 +4,7 @@ import { User } from '../models/user';
 
 import { Message } from '../models/message';
 import { MessageService } from '../services/message.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-managefund',
@@ -39,7 +40,7 @@ export class ManagefundComponent implements OnInit {
       .subscribe(data => console.log(Object.values(data)[0]));
   }
 
-  onSubmit(form)
+  onSubmit(form: NgForm)
   {
     let user  = new User(
       null,
@@ -69,9 +70,9 @@ export class ManagefundComponent implements OnInit {
   {
     console.log('addFund called');
 
-    if(isNaN(Number(fundValue)))
+    if(fundValue.toString() == '')
     {
-      alert('fund is not a number !');
+      this.messageService.sendMessage(new Message('incorrect input', 'danger'));
       return;
     }
     let newFundValue = Number(user.fund) + Math.abs(Number(fundValue));
@@ -83,7 +84,7 @@ export class ManagefundComponent implements OnInit {
     .subscribe(data =>
       {
         this.users[index] = user;
-        this.messageService.sendMessage(new Message('update done', 'success'));
+        this.messageService.sendMessage(new Message('operation done', 'success'));
       });
   }
 
@@ -91,9 +92,9 @@ export class ManagefundComponent implements OnInit {
   {
     console.log('substractFund called');
 
-    if(isNaN(Number(fundValue)))
+    if(fundValue.toString() == '')
     {
-      this.messageService.sendMessage(new Message('fundvalue is not a number', 'danger'));
+      this.messageService.sendMessage(new Message('incorrect input', 'danger'));
       return;
     }
 
@@ -106,7 +107,7 @@ export class ManagefundComponent implements OnInit {
     .subscribe(data =>
       {
         this.users[index] = user;
-        this.messageService.sendMessage(new Message('update done', 'success'));
+        this.messageService.sendMessage(new Message('operation done', 'success'));
       });
   }
 }
