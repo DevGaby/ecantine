@@ -75,6 +75,13 @@ export class ManagefundComponent implements OnInit {
       this.messageService.sendMessage(new Message('incorrect input', 'danger'));
       return;
     }
+
+    //No need to query for 0
+    if(fundValue == 0)
+    {
+      return;
+    }
+
     let newFundValue = Number(user.fund) + Math.abs(Number(fundValue));
 
     user.fund = newFundValue;
@@ -95,6 +102,12 @@ export class ManagefundComponent implements OnInit {
     if(fundValue.toString() == '')
     {
       this.messageService.sendMessage(new Message('incorrect input', 'danger'));
+      return;
+    }
+
+    //No need to query for 0
+    if(fundValue == 0)
+    {
       return;
     }
 

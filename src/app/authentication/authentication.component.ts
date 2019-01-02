@@ -13,13 +13,11 @@ export class AuthenticationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log($('#inputemail'));
   }
 
   onSubmit(form:NgForm)
   {
     console.log(form.value);
-
-    console.log($('#inputemail)'));
   }
-
 }
