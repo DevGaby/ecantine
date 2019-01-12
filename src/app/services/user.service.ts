@@ -56,7 +56,7 @@ export class UserService {
     return this.httpClient
       .get<User[]>(defaultUserUrl + '/' + id + '.json')
       .pipe(
-        tap(data => 
+        tap(data =>
           {
             data;
             console.log('getUser success');
@@ -100,7 +100,7 @@ export class UserService {
   deleteUser(id: string): Observable<User>
   {
     return this.httpClient
-      .delete<User>(defaultUserUrl + '/' + id + '.json') 
+      .delete<User>(defaultUserUrl + '/' + id + '.json')
       .pipe(
         tap(data => 
           {

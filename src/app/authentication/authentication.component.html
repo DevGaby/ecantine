@@ -8,19 +8,19 @@
   <div class="form-row">
       <div class="form-group col-12">
           <label for="inputemail">Adresse e-mail</label>
-          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="placeholder" ngModel>
-          <div class="text-danger" id="notificationemail">Email vide</div>
+          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="placeholder" required ngModel>
+          <div class="text-danger" id="notificationemail" required="email Vide" > </div>
       </div>
       <div class="form-group col-12">
           <label for="inputpassword">Mot de passe</label>
-          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="placeholder" ngModel>
-          <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
+          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="placeholder" required ngModel>
+          <div class="text-danger" id="notificationpassword"> </div>
       </div>
       <div class="col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-secondary mr-1" id="buttonsignin"
+          <button type="submit" class="btn btn-success mr-1" id="buttonsignin"
           >S'authentifier</button>
 
-          <button class="btn btn-secondary" [routerLink]="['/inscription']">S'inscrire</button>
+          <button class="btn btn-primary" [routerLink]="['/inscription']">S'inscrire</button>
       </div>
       <div class="col-12 d-flex justify-content-end mt-3" >
           <a href="#" id="hrefpasswordforgotten">Mot de passe oublié ?</a>
