@@ -1,3 +1,4 @@
+import { log } from 'util';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,13 +27,12 @@ export class InscriptionComponent implements OnInit {
     {
         console.log(data);
         this.users = Object.values(data);
-        let keys = Object.keys(data);
+        const keys = Object.keys(data);
         for (let i = 0; i < this.users.length; i++)
         {
           this.users[i].id = keys[i];
         }
-
-        console.log(this.users);
+        // console.log(this.users);
     });
 
       // this.userService
@@ -40,8 +40,8 @@ export class InscriptionComponent implements OnInit {
       // .subscribe(data => console.log(Object.values(data)[0]));
   }
 
-  signUp(inputName: string, intputFistname: string,
-          inputEmail: string, inputPassword: string) 
+  signUp (inputName: string, intputFistname: string,
+          inputEmail: string, inputPassword: string)
   {
     this.userService.getUsers()
     .subscribe(data =>
@@ -54,17 +54,21 @@ export class InscriptionComponent implements OnInit {
       // Verification de l'email saisie et ceux de la BDD
       for (let i = 0; i < users.length; i++)
       {
-       if (user.email === users[i])
+        // console.log('@BDD : ' + users[i].email + ' et @input : ' + inputEmail);
+       if (inputEmail === users[i].email)
        {
-          console.log(user[0][i]);
-          alert('Ce compte existe déjà');
-       } else
-       {
-         alert('Vous êtes inscrit(e) !!');
-        }
+         // On sort de la boucle
+         console.log('Ce compte existe deja');
+       } else {
+         console.log('En cous d\'ajout');
+         console.log(inputEmail);
+        // return inputEmail;
+       }
+       // On passe a l'ieration suivante
       }
       });
     });
+    // On retourne inputEmail et on ajoute le nouvel user
   }
 
   onSubmit(form: NgForm)
@@ -80,12 +84,15 @@ export class InscriptionComponent implements OnInit {
     const { lastname, firstname, email, password } = form.value;
     this.signUp(lastname, firstname, email, password);
 
+    // const controle = this.signUp(lastname, firstname, email, password);
+    // user.email = controle;
+    // console.log(controle);
     this.userService.addUser(user)
     .subscribe(data =>
     {
         user.id = Object.values(data)[0];
         this.users.push(user);
-      });
-    }
+    });
+  }
 
 }

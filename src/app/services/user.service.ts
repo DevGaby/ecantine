@@ -37,7 +37,7 @@ export class UserService {
   addUser(user: User): Observable<User>
   {
     return this.httpClient
-      .post<User>(defaultUserUrl + '.json', user, httpOptions) 
+      .post<User>(defaultUserUrl + '.json', user, httpOptions)
       .pipe(
         tap(data =>
           {
@@ -87,7 +87,7 @@ export class UserService {
     return this.httpClient
       .patch<User>(defaultUserUrl + '/' + user.id + '.json', user)
       .pipe(
-        tap(data => 
+        tap(data =>
           {
             console.log('updateUser success');
           }),
@@ -102,7 +102,7 @@ export class UserService {
     return this.httpClient
       .delete<User>(defaultUserUrl + '/' + id + '.json')
       .pipe(
-        tap(data => 
+        tap(data =>
           {
             console.log('deleteUser success');
           }),
