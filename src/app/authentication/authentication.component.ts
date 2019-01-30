@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-<<<<<<< HEAD
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { from } from 'rxjs';
-=======
 
 import * as $ from 'jquery';
->>>>>>> e59964189dd622d5eaa245fd4d835d02b058e37b
 
 @Component({
   selector: 'app-authentication',
@@ -22,7 +19,6 @@ export class AuthenticationComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-<<<<<<< HEAD
     this.getUsers();
   }
 
@@ -51,13 +47,6 @@ export class AuthenticationComponent implements OnInit {
     // Destrucring ES6
     const { email, password } = form.value;
     this.signIn(email, password);
-=======
     console.log($('#inputemail'));
-  }
-
-  onSubmit(form:NgForm)
-  {
-    console.log(form.value);
->>>>>>> e59964189dd622d5eaa245fd4d835d02b058e37b
   }
 }

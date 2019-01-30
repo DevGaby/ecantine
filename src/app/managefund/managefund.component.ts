@@ -42,7 +42,7 @@ export class ManagefundComponent implements OnInit {
 
   onSubmit(form: NgForm)
   {
-    let user  = new User(
+    const user  = new User(
       null,
       null,
       null,
@@ -59,7 +59,7 @@ export class ManagefundComponent implements OnInit {
 
     this.userService
     .addUser(user)
-    .subscribe(data => 
+    .subscribe(data =>
       {
         user.id = Object.values(data)[0];
         this.users.push(user);
@@ -70,19 +70,19 @@ export class ManagefundComponent implements OnInit {
   {
     console.log('addFund called');
 
-    if(fundValue.toString() == '')
+    if (fundValue.toString() === '')
     {
       this.messageService.sendMessage(new Message('incorrect input', 'danger'));
       return;
     }
 
-    //No need to query for 0
-    if(fundValue == 0)
+    // No need to query for 0
+    if (fundValue === 0)
     {
       return;
     }
 
-    let newFundValue = Number(user.fund) + Math.abs(Number(fundValue));
+    const newFundValue = Number(user.fund) + Math.abs(Number(fundValue));
 
     user.fund = newFundValue;
 
@@ -99,20 +99,19 @@ export class ManagefundComponent implements OnInit {
   {
     console.log('substractFund called');
 
-    if(fundValue.toString() == '')
+    if (fundValue.toString() === '')
     {
       this.messageService.sendMessage(new Message('incorrect input', 'danger'));
       return;
     }
 
-    //No need to query for 0
-    if(fundValue == 0)
+    // No need to query for 0
+    if (fundValue === 0)
     {
       return;
     }
 
-    let newFundValue = Math.max(0, Number(user.fund) - Math.abs(Number(fundValue)));
-    
+   const newFundValue = Math.max(0, Number(user.fund) - Math.abs(Number(fundValue)));
     user.fund = newFundValue;
 
     this.userService

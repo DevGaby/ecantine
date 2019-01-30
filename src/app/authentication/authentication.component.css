@@ -1,0 +1,17 @@
+input:focus {
+    background:lightgray;
+    color:black;
+}
+
+input:valid {
+    border: 2px solid black;
+  }
+
+input:required {
+    border: 2px dashed red;
+  }
+
+
+  
+  
+  
