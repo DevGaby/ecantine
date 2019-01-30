@@ -1,0 +1,84 @@
+
+<div class="row d-block" style="margin:auto">
+  <div class="col lg-offset-12 md-8 mx-auto m-5 " id="connexion">
+    <div class="card-group">
+      <!-- Image -->
+      <div class="card p-5 d-md-down-none " style="background-image: url(../../../../assets/img/wallpaper/booAccueil.png)">
+      </div>
+      <div class="card p-4">
+        <!-- Logo -->
+        <div>
+          <div class="card-body text-center">
+            <img src='../../assets/img/logo-02.png'>
+          </div>
+        </div>
+        <!-- Formulaire -->
+        <div class="card-body">
+          <h1>Connexion</h1>
+          <p class="text-muted">Bienvenue sur la page de connexion de BOO</p>
+          <div class="row">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" action="" method="post">
+              <div class="d-flex">
+                <div class="col-6" id="sec-connexion">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input type="text" name="idUser" class="form-control" placeholder="Identifiant" autocomplete="username" required>
+                  </div>
+
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <input type="password" name="passwordUser" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
+                  </div>
+                </div>
+
+                <div class="col-6" id="sec-socialConnexion">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <a href="https://fr-fr.facebook.com/login/" target="_blank" class="button facebook">
+                        <span> <i class="fa fa-facebook" aria-hidden="true"></i></span>
+                        <p>Connection avec Facebook</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <a href="https://plus.google.com/+Se-connecter" target="_blank" class="button google-plus">
+                        <span><i class="fa fa-google-plus" aria-hidden="true"></i></span>
+                        <p>Connection avec Google +</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+          </div> <!-- Fin de la row-->
+
+          <div class="row" id="sec-direction">
+            <div class="col-2">
+              <div class="form-action">
+                <button type="submit" (click)="onSumit(f)" class="btn btn-primary btn"> Connexion</button>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="input-group mb-3">
+                <a class="nav-link" [routerLink]="['/register']"> Inscription </a>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="input-group mb-3">
+                <a class="nav-link" [routerLink]="['/password']"> Mot de passe oubliez? </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
