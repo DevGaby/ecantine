@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { SessionService } from './../services/session.service';
 
 @Component({
   selector: 'app-weekly',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weekly.component.css']
 })
 export class WeeklyComponent implements OnInit {
-
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
+    this.sessionService.countObservable.subscribe(console.log);
   }
 
+  add()
+  {
+    this.sessionService.increaseCountSubject(1);
+  }
+
+  remove()
+  {
+    this.sessionService.decreaseCountSubject(1);
+  }
 }
