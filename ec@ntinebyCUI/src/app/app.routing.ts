@@ -13,6 +13,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PasswordComponent } from './password/password.component';
+import { CommandmanagementComponent } from './views/commandmanagement/commandmanagement.component';
 
 export const routes: Routes = [
 
@@ -43,6 +44,13 @@ export const routes: Routes = [
       title: 'Page Mot De Passe'
     }
   },
+  // GESTION DES COMMANDES
+  {
+    path: 'gestion/commandes',
+    component: CommandmanagementComponent,
+ 
+  },
+
  // Fin d'ajout
   {
     path: '404',

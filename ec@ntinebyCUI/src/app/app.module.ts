@@ -47,6 +47,7 @@ import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PasswordComponent } from './password/password.component';
+import { CommandmanagementComponent } from './views/commandmanagement/commandmanagement.component';
 
 @NgModule({
   imports: [
@@ -73,6 +74,7 @@ import { PasswordComponent } from './password/password.component';
     ConnexionComponent,
     InscriptionComponent,
     PasswordComponent,
+    CommandmanagementComponent,
   ],
   providers: [{
     provide: LocationStrategy,

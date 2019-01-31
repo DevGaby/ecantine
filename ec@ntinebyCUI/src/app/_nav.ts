@@ -34,6 +34,20 @@ export const navItems = [
   },
   {
     title: true,
+    name: 'Cantinière'
+  },
+  {
+    name: 'Commandes',
+    url: '/gestion/commandes',
+    icon: 'icon-pencil',
+  },
+  {
+    name: 'Menus Hebdomadaire',
+    url: '/nenu-hebdo',
+    icon: 'icon-puzzle'
+  },
+  {
+    title: true,
     name: 'Message'
   },
   {
