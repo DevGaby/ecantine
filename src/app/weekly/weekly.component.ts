@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SessionService } from './../services/session.service';
 
@@ -11,7 +11,11 @@ export class WeeklyComponent implements OnInit {
   constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessionService.countObservable.subscribe(console.log);
+    const date: Date = new Date();
+    date.setHours(0, 0, 0, 0);
+    console.log(date);
+
+    this.sessionService.countObservable.subscribe();
   }
 
   add()
