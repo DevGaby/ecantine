@@ -45,11 +45,7 @@ export const routes: Routes = [
     }
   },
   // GESTION DES COMMANDES
-  {
-    path: 'gestion/commandes',
-    component: CommandmanagementComponent,
- 
-  },
+  
 
  // Fin d'ajout
   {
@@ -95,6 +91,14 @@ export const routes: Routes = [
       {
         path: 'menu',
         loadChildren: './views/menu/menu.module#MenuModule'
+      },
+      {
+        path: 'commandes',
+        loadChildren: './views/commandmanagement/commandmanagement.module#CommandManagementModule'
+      },
+      {
+        path: 'gestion-menu',
+        loadChildren: './views/menumanagement/menumanagement.module#MenuManagementModule'
       },
       {
         path: 'message',

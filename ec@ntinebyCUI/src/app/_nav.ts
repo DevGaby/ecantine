@@ -38,12 +38,12 @@ export const navItems = [
   },
   {
     name: 'Commandes',
-    url: '/gestion/commandes',
+    url: '/commandes/list-commande',
     icon: 'icon-pencil',
   },
   {
     name: 'Menus Hebdomadaire',
-    url: '/nenu-hebdo',
+    url: '/gestion-menu/creer-menu',
     icon: 'icon-puzzle'
   },
   {
