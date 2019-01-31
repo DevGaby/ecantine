@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { throwError as ObservableThrowError, Observable } from 'rxjs';
-import { map, tap, catchError } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { User } from '../models/user';
-import { log } from 'util';
+import { Article } from '../models/article';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,100 +13,91 @@ const httpOptions = {
 
 // Default url for users'table
 // Pour la voir rajouter.json
-const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
+const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/articles';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-
-  users: User[] =
-  [
-    new User ('1aze', 'aa@aa.com', '1234', 'Camille', 'GARNIER', 20),
-    new User ('2', 'bb@bb.com', '1234', 'Frederic', 'DUPONT', 0),
-  ];
-
-  emails: User[];
+export class ArticleService {
 
   constructor ( private httpClient: HttpClient ) { }
 
   //#region CREATE
   // Add a user in users' table
-  addUser(user: User): Observable<User>
+  addArticle(article: Article): Observable<Article>
   {
     return this.httpClient
-      .post<User>(defaultUserUrl + '.json', user, httpOptions)
+      .post<Article>(defaultUserUrl + '.json', article, httpOptions)
       .pipe(
         tap(data =>
           {
             data;
-            console.log('addUser success');
+            console.log('addArticle success');
           }),
-        catchError(this.handleError<User>('addUser'))
+        catchError(this.handleError<Article>('addArticle'))
       );
   }
   //#endregion CREATE
 
   //#region READ
   // Get user where key equals id
-  getUser(id: string): Observable<User[]>
+  getArticle(id: string): Observable<Article[]>
   {
     return this.httpClient
-      .get<User[]>(defaultUserUrl + '/' + id + '.json')
+      .get<Article[]>(defaultUserUrl + '/' + id + '.json')
       .pipe(
         tap(data =>
           {
             data;
-            console.log('getUser success');
+            console.log('getArticle success');
           }),
-        catchError(this.handleError('getUser', []))
+        catchError(this.handleError('getArticle', []))
       );
   }
 
   // Get all user in users' table
-  getUsers(): Observable<User[]>
+  getArticles(): Observable<Article[]>
   {
     return this.httpClient
-      .get<User[]>(defaultUserUrl + '.json')
+      .get<Article[]>(defaultUserUrl + '.json')
       .pipe(
         tap(data =>
           {
             data;
-            console.log('getUsers success');
+            console.log('getArticles success');
           }),
-        catchError(this.handleError('getUsers', []))
+        catchError(this.handleError('getArticles', []))
     );
   }
   //#endregion READ
 
   //#region UPDATE
-  updateUser(user: User): Observable<User>
+  updateArticle(article: Article): Observable<Article>
   {
-    const { id } = user;
-
+    const { id } = article;
     return this.httpClient
-      .patch<User>(defaultUserUrl + '/' + id + '.json', user)
+      .patch<Article>(defaultUserUrl + '/' + id + '.json', article)
       .pipe(
         tap(data =>
           {
-            console.log('updateUser success');
+            console.log('updateArticle success');
           }),
-        catchError(this.handleError<User>('updateUser'))
+        catchError(this.handleError<Article>('updateArticle'))
       );
   }
   //#endregion UPDATE
 
   //#region DELETE
-  deleteUser(id: string): Observable<User>
+  deleteArticle(id: string): Observable<Article>
   {
     return this.httpClient
-      .delete<User>(defaultUserUrl + '/' + id + '.json')
+      .delete<Article>(defaultUserUrl + '/' + id + '.json')
       .pipe(
         tap(data =>
           {
-            console.log('deleteUser success');
+            console.log('deleteArticle success');
           }),
-        catchError(this.handleError<User>('deleteUser'))
+        catchError(this.handleError<Article>('deleteArticle'))
       );
   }
   //#endregion DELETE

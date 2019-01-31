@@ -7,33 +7,33 @@
 <form action="" class="m-5" (ngSubmit)="onSubmit(modif)" #f="ngForm">
     <div class="form-row">
         <div class="form-group col-12">
-            <input type="text" name="name" value="DUPONT"  placeholder="DUPONT" disabled="disabled" ngModel/>
+            <input type="text" name="name" value="DUPONT"  placeholder="DUPONT" disabled="disabled" ngModel [ngModelOptions]="{standalone: true}"/>
             <!-- <input type="text" class="form-control" id="inputfistname" placeholder="Prénom" > -->
             <!-- <div class="text-danger" id="notificationtfirstname">Prenom vide</div> -->
         </div>
         <div class="form-group col-12">
-            <input type="text" name="firstname" value="Marie" placeholder="Marie" disabled="disabled" ngModel/>
+            <input type="text" name="firstname" value="Marie" placeholder="Marie" disabled="disabled" ngModel [ngModelOptions]="{standalone: true}"/>
             <!-- <input type="text" class="form-control" id="inputfistname" placeholder="Prénom" > -->
             <!-- <div class="text-danger" id="notificationtfirstname">Prenom vide</div> -->
         </div>
 
         <label>Identifiant actuel</label>
         <div class="form-group col-12">
-            <input type="email" class="form-control" id="inputemailold" placeholder="e-mail actuelle" ngModel>
+            <input type="email" class="form-control" id="inputemailold" placeholder="e-mail actuelle" ngModel [ngModelOptions]="{standalone: true}">
             <div class="text-danger" id="notificationtemail">Email vide</div>
         </div>
         <div class="form-group col-12">
-            <input type="password" class="form-control" id="inputpasswordold" placeholder="mot de passe actuelle" ngModel>
+            <input type="password" class="form-control" id="inputpasswordold" placeholder="mot de passe actuelle" ngModel [ngModelOptions]="{standalone: true}">
             <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
         </div>
 
         <label>Nouveau identifiant</label>
         <div class="form-group col-12">
-            <input type="email" class="form-control" id="inputemailnew" placeholder="nouvelle e-mail" ngModel>
+            <input type="email" class="form-control" id="inputemailnew" placeholder="nouvelle e-mail" ngModel [ngModelOptions]="{standalone: true}">
             <div class="text-danger" id="notificationtemail">Email vide</div>
         </div>
         <div class="form-group col-12">
-            <input type="password" class="form-control" id="inputpasswordnew" placeholder="nouveau mot de passe" ngModel>
+            <input type="password" class="form-control" id="inputpasswordnew" placeholder="nouveau mot de passe" ngModel [ngModelOptions]="{standalone: true}">
             <div class="text-danger" id="notificationpassword">Mot de passe vide</div>
         </div>
         <div class="col-12 d-flex justify-content-end">

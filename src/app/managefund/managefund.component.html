@@ -30,7 +30,7 @@
 <div class="row mx-1">
     <div class="col-12">
       <h1> Add user</h1>
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="row">
+        <form (ngSubmit)="onSubmitUser(f1)" #f1="ngForm" class="row">
             <div class="form-row">
                 <div class="form-group col-12">
                     <label for="firstname">Firstname</label>
@@ -51,3 +51,53 @@
           </form>
     </div>
   </div>
+
+  -- TEMP ADD MENU --
+
+  <div class="row mx-1">
+      <div class="col-12">
+        <h1> Add menu</h1>
+          <form (ngSubmit)="onSubmitMenu(f2)" #f2="ngForm" class="row">
+              <div class="form-row">
+                  <div class="form-group col-12">
+                      <label for="firstname">Libelle</label>
+                      <input type="text" name="libelle" class="form-control" ngModel>
+                  </div>
+                  <div class="form-group col-12">
+                      <label for="lastname">Price</label>
+                      <input type="number" name="price" class="form-control" ngModel>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                      <button type="submit" class="btn btn-success mr-1">Add menu</button>                      
+                  </div>
+              </div>
+            </form>
+      </div>
+    </div>
+
+  -- TEMP ADD ARTICLE --
+
+  <div class="row mx-1">
+      <div class="col-12">
+        <h1> Add article</h1>
+          <form (ngSubmit)="onSubmitArticle(f3)" #f3="ngForm" class="row">
+              <div class="form-row">
+                  <div class="form-group col-12">
+                      <label for="firstname">Libelle</label>
+                      <input type="text" name="libelle" class="form-control" ngModel>
+                  </div>
+                  <div class="form-group col-12">
+                      <label for="lastname">Description</label>
+                      <input type="text" name="description" class="form-control" ngModel>
+                  </div>
+                  <div class="form-group col-12">
+                      <label for="fund">Price</label>
+                      <input type="number" name="price" class="form-control" ngModel>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                      <button type="submit" class="btn btn-success mr-1">Add article</button>                      
+                  </div>
+              </div>
+            </form>
+      </div>
+    </div>

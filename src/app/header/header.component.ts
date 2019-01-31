@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',

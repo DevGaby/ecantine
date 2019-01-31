@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavDroiteComponent } from './nav-droite.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NavDroiteComponent', () => {
   let component: NavDroiteComponent;
@@ -8,7 +9,8 @@ describe('NavDroiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavDroiteComponent ]
+      declarations: [ NavDroiteComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));

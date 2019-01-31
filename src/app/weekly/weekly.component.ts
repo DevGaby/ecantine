@@ -14,8 +14,6 @@ export class WeeklyComponent implements OnInit {
     const date: Date = new Date();
     date.setHours(0, 0, 0, 0);
     console.log(date);
-
-    this.sessionService.countObservable.subscribe();
   }
 
   add()
