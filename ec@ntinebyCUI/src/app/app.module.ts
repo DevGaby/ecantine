@@ -73,6 +73,7 @@ import { PasswordComponent } from './password/password.component';
     ConnexionComponent,
     InscriptionComponent,
     PasswordComponent,
+      
   ],
   providers: [{
     provide: LocationStrategy,
