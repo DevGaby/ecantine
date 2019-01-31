@@ -9,9 +9,9 @@ export class MessageService {
 
   limit: number = 5;
   messageQueue: Message[] = [
-    new Message('success', 'success'),
-    new Message('info', 'info'),
-    new Message('danger', 'danger'),
+    // new Message('success', 'success'),
+    // new Message('info', 'info'),
+    // new Message('danger', 'danger'),
   ];
 
   constructor() { }

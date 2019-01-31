@@ -4,7 +4,7 @@ export class Message
     public style: string;
     public dismissed: boolean = false;
 
-    constructor(content, style?)
+    constructor(content: string, style?: string)
     {
         this.content = content
         this.style = style || 'info'

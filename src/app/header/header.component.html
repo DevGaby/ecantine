@@ -19,6 +19,7 @@
                 <div class="panier" >
                     <a> <img src="../../assets/img/shopping-basket.png" alt="icon_panier" style="width: 25px;"
                             [routerLink]="['/panier']">
+                        <span class="badge badge-primary" *ngIf="count">{{ count }}</span>
                     </a>
                 </div>
                 <form class="form-inline my-2 my-lg-0">
