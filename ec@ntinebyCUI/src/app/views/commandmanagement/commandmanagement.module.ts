@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AddCommandComponent } from './add-command/add-command.component';
 import { ListCommandComponent } from './list-command/list-command.component';
 
+import { DataTablesModule } from 'angular-datatables';
+
 
 // Ticket Routing
 import { CommandManagementRoutingModule } from './commandmanagement-routing.module';
@@ -12,7 +14,8 @@ import { CommandManagementRoutingModule } from './commandmanagement-routing.modu
 @NgModule({
   imports: [
     CommonModule,
-    CommandManagementRoutingModule
+    CommandManagementRoutingModule,
+    DataTablesModule
   ],
   declarations: [
     AddCommandComponent,
