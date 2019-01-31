@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeeklyComponent } from './weekly.component';
 
+const testValue: number = 5;
+
 describe('WeeklyComponent', () => {
   let component: WeeklyComponent;
   let fixture: ComponentFixture<WeeklyComponent>;

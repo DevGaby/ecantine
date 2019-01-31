@@ -19,7 +19,9 @@ export class InscriptionComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router
-  ) { }
+  ) { 
+    console.log('Hello');
+  }
 
   ngOnInit() {
     this.userService.getUsers()

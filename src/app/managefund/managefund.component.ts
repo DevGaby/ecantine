@@ -5,6 +5,10 @@ import { User } from '../models/user';
 import { Message } from '../models/message';
 import { MessageService } from '../services/message.service';
 import { NgForm } from '@angular/forms';
+import { Menu } from '../models/menu';
+import { MenuService } from '../services/menu.service';
+import { ArticleService } from '../services/article.service';
+import { Article } from '../models/article';
 
 @Component({
   selector: 'app-managefund',
@@ -16,6 +20,8 @@ export class ManagefundComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private menuService: MenuService,
+    private articleService: ArticleService,
     private messageService: MessageService
   ) { }
 
@@ -40,8 +46,11 @@ export class ManagefundComponent implements OnInit {
       .subscribe(data => console.log(Object.values(data)[0]));
   }
 
-  onSubmit(form: NgForm)
+  onSubmitUser(form: NgForm)
   {
+    console.log('onSubmitUser :');
+    console.log(form.form.value);
+
     const user  = new User(
       null,
       null,
@@ -66,6 +75,43 @@ export class ManagefundComponent implements OnInit {
       });
   }
 
+  onSubmitMenu(form: NgForm)
+  {
+    console.log('onSubmitMenu :');
+    console.log(form.form.value);
+
+    console.log(new Date().setHours(0, 0, 0, 0));
+
+    const menu  = new Menu(
+      '',
+      form.form.value.libelle,
+      new Date().setHours(0, 0, 0, 0),
+      form.form.value.price
+    );
+
+    this.menuService
+    .addMenu(menu)
+    .subscribe();
+  }
+
+  onSubmitArticle(form: NgForm)
+  {
+    console.log('onSubmitArticle :');
+    console.log(form.form.value);
+
+    const article  = new Article(
+      '',
+      form.form.value.libelle,
+      form.form.value.description,
+      form.form.value.price
+    );
+
+    this.articleService
+    .addArticle(article)
+    .subscribe();
+  }
+
+  // #region FUND OPERATION
   addFund(user: User, fundValue: number, index: number)
   {
     console.log('addFund called');
@@ -122,4 +168,6 @@ export class ManagefundComponent implements OnInit {
         this.messageService.sendMessage(new Message('operation done', 'success'));
       });
   }
+
+  // #endregion FUND OPERATION
 }
