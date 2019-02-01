@@ -12,10 +12,10 @@ const routes: Routes = [
             title: 'Message'
         },
         children: [
-            {
-                path: '',
-                redirectTo: 'notification'
-            },
+            // {
+            //     path: '',
+            //     redirectTo: 'notification'
+            // },
             {
             // Component Notification
                 path: 'notification',

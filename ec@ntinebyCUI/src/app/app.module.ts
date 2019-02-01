@@ -48,6 +48,7 @@ import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { PasswordComponent } from './password/password.component';
+import { MessageModule } from './views/message/message.module';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { PasswordComponent } from './password/password.component';
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
+    MessageModule,
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
