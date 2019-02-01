@@ -2,7 +2,7 @@
 import { Component, OnDestroy } from '@angular/core';
 
 import { navItems } from './../../_nav';
-import { NotificationComponent} from '../../views/message/notification.component';
+import { NotificationComponent } from '../../views/message/notification.component';
 
 @Component({
   selector: 'app-dashboard',
