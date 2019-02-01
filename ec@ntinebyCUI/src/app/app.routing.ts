@@ -100,12 +100,12 @@ export const routes: Routes = [
         loadChildren: './views/menumanagement/menumanagement.module#MenuManagementModule'
       },
       {
-        path: 'message',
-        loadChildren: './views/message/message.module#MessageModule'
+        path: 'gestion-plat',
+        loadChildren: './views/food/food.module#FoodModule'
       },
       {
-        path: 'ticket',
-        loadChildren: './views/ticket/ticket.module#TicketModule'
+        path: 'message',
+        loadChildren: './views/message/message.module#MessageModule'
       },
       {
         path: 'compte',
