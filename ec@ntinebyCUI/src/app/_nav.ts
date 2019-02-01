@@ -54,9 +54,9 @@ export const navItems = [
     icon: 'icon-lock'
   },
   // Fin ajout
-  
+
   {
     divider: true
   },
-  
+
 ];
