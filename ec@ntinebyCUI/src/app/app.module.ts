@@ -76,7 +76,7 @@ import { MessageModule } from './views/message/message.module';
     ConnexionComponent,
     InscriptionComponent,
     PasswordComponent,
-      
+
   ],
   providers: [{
     provide: LocationStrategy,

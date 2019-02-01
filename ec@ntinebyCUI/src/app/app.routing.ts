@@ -45,7 +45,6 @@ export const routes: Routes = [
     }
   },
   // GESTION DES COMMANDES
-  
 
  // Fin d'ajout
   {
