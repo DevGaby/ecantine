@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProfilComponent } from './profil.component';
+import { ProfilComponent } from './profil/profil.component';
+import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,13 @@ const routes: Routes = [
                 data: {
                     title: 'Profil'
                 }
+            },
+            {
+                path: 'shopping-cart',
+                component: ShoppingCartComponent,
+                data: {
+                    title: 'Panier'
+            }
             },
         ]
     }

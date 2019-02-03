@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // Component du dossier
-import { ProfilComponent } from './profil.component';
+import { ProfilComponent } from './profil/profil.component';
+import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
 
 // Messaage Routing
 import { CompteRoutingModule } from './compte-routing.module';
@@ -16,9 +17,11 @@ import { CompteRoutingModule } from './compte-routing.module';
     ],
     declarations:  [
         ProfilComponent,
+        ShoppingCartComponent,
     ],
     exports: [
         ProfilComponent,
+        ShoppingCartComponent,
     ]
 })
 export class CompteModule { }

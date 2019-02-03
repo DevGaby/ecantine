@@ -18,6 +18,25 @@ export const navItems = [
     url: '/menu/menuList',
     icon: 'icon-layers',
   },
+  {
+    title: true,
+    name: 'Compte'
+  },
+  {
+    name: 'Panier',
+    url: '/compte/shopping-cart',
+    icon: 'icon-basket-loaded',
+  },
+  {
+    name: 'Profil',
+    url: '/compte/profil',
+    icon: 'icon-user',
+  },
+  {
+    name: 'Déconnexion',
+    url: '/deconnnexion',
+    icon: 'icon-lock'
+  },
 
   {
     title: true,
@@ -39,20 +58,6 @@ export const navItems = [
     icon: 'icon-puzzle'
   },
 
-  {
-    title: true,
-    name: 'Compte'
-  },
-  {
-    name: 'Profil',
-    url: '/compte/profil',
-    icon: 'icon-user',
-  },
-  {
-    name: 'Déconnexion',
-    url: '/deconnnexion',
-    icon: 'icon-lock'
-  },
   // Fin ajout
 
   {

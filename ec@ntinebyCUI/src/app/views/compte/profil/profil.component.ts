@@ -12,13 +12,9 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  getUserPassword() {}
-
-  getUserEmail() {}
-
   onSubmit (form: NgForm) {
     const {password, newpassword, confirmpassword, email, newemail, confirmemail } = form.value;
     // this.modifyEmail(password, newpassword, confirmpassword, email, newemail, confirmemail);
   }
+
 }
