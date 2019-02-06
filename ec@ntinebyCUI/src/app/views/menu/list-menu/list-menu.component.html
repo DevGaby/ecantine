@@ -7,7 +7,62 @@
         <i class="fa fa-align-justify"></i> Menu de la semaine
       </div>
 
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">LUNDI</h4>
+      </div>
       <div class="card-body">
+        <div class="form-group row">
+          <label  class="col-sm-4 col-form-label">Entrée</label>
+            <div class="col-sm-5">
+              <select  class="form-control" name="entree" id="">
+                <option>entrée 1</option>
+                <option>entrée 2</option>
+                <option>entrée 3</option>
+              </select>
+            </div>
+              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary" (click)="add()">Ajouter</button>
+        </div>       
+        <h3>Les entrées</h3>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
+        </ul>
+        <hr>
+        <div class="form-group row">
+          <label  class="col-sm-4 col-form-label">Résistance</label>
+            <div class="col-sm-5">
+              <select  class="form-control" name="entree" id="">
+                <option>résistance 1</option>
+                <option>résistance 2</option>
+                <option>résistance 3</option>
+              </select>
+            </div>
+              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning" (click)="add()">Ajouter</button>
+        </div>        
+        <h3>Les plats</h3>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
+        </ul>
+        <hr>
+        <div class="form-group row">
+          <label  class="col-sm-4 col-form-label">Dessert</label>
+            <div class="col-sm-5">
+              <select  class="form-control" name="entree" id="">
+                <option>dessert 1</option>
+                <option>dessert 2</option>
+                <option>dessert 3</option>
+              </select>
+            </div>
+              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success" (click)="add()">Ajouter</button>
+        </div>       
+        <h3>Les desserts</h3>
+        <hr>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
+          </ul>
+      </div>
+    </div>
+
+      <!-- <div class="card-body">
           <table class="table table-bordered table-striped table-sm">
             <thead>
               <tr>
@@ -78,7 +133,7 @@
                 </tr>
               </tbody>
           </table>
-        </div>
+        </div> -->
 
       
       <!-- 
@@ -100,7 +155,8 @@
               </td>
             </tr>
              -->
-    </div>
+
+   
   </div><!--/.col-->
   </div> <!-- /.row-->
 </div> <!-- /.container-->

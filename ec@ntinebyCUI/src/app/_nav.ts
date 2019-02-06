@@ -2,7 +2,7 @@ export const navItems = [
   {
     name: 'Accueil',
     url: '/home',
-    icon: 'icon-speedometer',
+    icon: 'icon-home',
     // badge: {
     //   variant: 'info',
     //   text: 'NEW'
@@ -16,7 +16,7 @@ export const navItems = [
   {
     name: 'Menu de la semaine',
     url: '/menu/menuList',
-    icon: 'icon-layers',
+    icon: 'icon-map',
   },
   {
     title: true,
@@ -43,19 +43,19 @@ export const navItems = [
     name: 'Cantinière'
   },
   {
-    name: 'Commandes',
+    name: 'Liste Commandes',
     url: '/commandes/list-commande',
-    icon: 'icon-pencil',
+    icon: 'icon-check',
   },
   {
-    name: 'Menus Hebdomadaire',
+    name: 'Créer Menu',
     url: '/gestion-menu/creer-menu',
-    icon: 'icon-puzzle'
+    icon: 'icon-note'
   },
   {
-    name: 'Plats',
+    name: 'Créer Plat',
     url: '/gestion-plat/ajouter-plat',
-    icon: 'icon-puzzle'
+    icon: 'icon-pencil'
   },
 
   // Fin ajout
