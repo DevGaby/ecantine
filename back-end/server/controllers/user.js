@@ -75,25 +75,50 @@ var update = (req,res)=>{
 
 }
 
-//Modifier la caisse de l'utilisateur
+//Modifier de la cagnotte de l'utilisateur
 
 var updateFund = (req,res)=>{
     if(req.body.fund <= 0){
         res.status(400).send(' Le montant doit être supérieur ou égale à zero');
     }
     var options = {fund:req.body.fund}
-    var user = users.findOneAndUpdate({_id:req.params.id},options)
-                .then(user => {
-                    res.status(200).send("Succès");
-                })
-                .catch(err=>{
-                    res.status(400).send(err);
-                })
-
-
+    users.findOneAndUpdate({_id:req.params.id},options)
+        .then(user => {
+            res.status(200).send("Succès");
+        })
+        .catch(err=>{
+            res.status(400).send(err);
+        })
 }
 
 
+//Modifier la role de l'utilisateur
+
+var updateRole = (req,res)=>{
+    
+    var options = {role:req.body.role}
+    users.findOneAndUpdate({_id:req.params.id},options)
+        .then(user => {
+            res.status(200).send("Succès");
+        })
+        .catch(err=>{
+            res.status(400).send(err);
+        })
+}
+
+//Modifier la mot de passe de l'utilisateur
+
+var updatePassword = (req,res)=>{
+    
+    var options = {password:req.body.password}
+    users.findOneAndUpdate({_id:req.params.id},options)
+        .then(user => {
+            res.status(200).send("Succès");
+        })
+        .catch(err=>{
+            res.status(400).send(err);
+        })
+}
 
 
 
@@ -103,5 +128,7 @@ module.exports = {
     deleteById,
     findById,
     update,
-    updateFund
+    updateFund,
+    updateRole,
+    updatePassword
 }

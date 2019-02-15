@@ -51,8 +51,17 @@ app.get('/home',(req,res)=>{
     // Modification d'un user 
     app.put('/user/:id',userController.update);
 
-    // Modification la caisse d'un user 
+    // Modification de la cagnotte d'un user 
     app.put('/user/:id/fund',userController.updateFund);
+
+    // Modification du rôle d'un user 
+    app.put('/user/:id/role',userController.updateRole);
+
+    // Modification du mot de passe d'un user 
+    app.put('/user/:id/password',userController.updatePassword);
+
+
+//------------C
 //########## FIN DES ROUTES ###########/
 
 
