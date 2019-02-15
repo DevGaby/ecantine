@@ -10,7 +10,7 @@ var create = (req,res)=>{
         firstname:req.body.firstname,
         email:req.body.email,
         password:req.body.password,
-        statut:req.body.statut,   // a quel moment ajouter le statut ?
+        role:"etudiant",   // a quel moment ajouter le statut ?
         fund:0,
     });
 
@@ -74,10 +74,34 @@ var update = (req,res)=>{
     })
 
 }
+
+//Modifier la caisse de l'utilisateur
+
+var updateFund = (req,res)=>{
+    if(req.body.fund <= 0){
+        res.status(400).send(' Le montant doit être supérieur ou égale à zero');
+    }
+    var options = {fund:req.body.fund}
+    var user = users.findOneAndUpdate({_id:req.params.id},options)
+                .then(user => {
+                    res.status(200).send("Succès");
+                })
+                .catch(err=>{
+                    res.status(400).send(err);
+                })
+
+
+}
+
+
+
+
+
 module.exports = {
     create,
     getAll,
     deleteById,
     findById,
-    update
+    update,
+    updateFund
 }

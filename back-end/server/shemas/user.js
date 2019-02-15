@@ -19,12 +19,12 @@ exports.schema = new mongoose.Schema({
         type:String,
         required:true
     },
-    statut:{
+    role:{
         type:String,
 
     },
     fund:{
-        type:String,
+        type:Number,
         required:true
     },
 
