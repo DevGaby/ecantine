@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 // ***** Déclaration des controllers
 var articleController = require('./controllers/article');
 var userController = require('./controllers/user');
+var menuController = require('./controllers/menu');
+var menuArticleController = require('./controllers/menuArticle');
 // ########## ROUTES ############//
 
 
@@ -61,7 +63,34 @@ app.get('/home',(req,res)=>{
     app.put('/user/:id/password',userController.updatePassword);
 
 
-//------------C
+//------------ MENU -------------
+
+    // Liste de tous les menus
+    app.get('/menus',menuController.getAll);
+
+    // Ajout d'un menu
+    app.post('/menu',menuController.create);
+
+    // Supression d'un menu 
+    app.delete('/menu/:id',menuController.deleteById);
+
+    //Selection d'un menu 
+    app.get('/menu/:id',menuController.findById);
+
+    // Modification d'un menu 
+    app.put('/menu/:id',menuController.update);
+
+
+//------------ MENUS-ARTICLES -------------
+
+    // Ajout d'un article dans un menu
+    app.post('/menu-article',menuArticleController.create);
+
+    // Liste des articles par menu
+    app.get('/menu-articles',menuArticleController.getAll);
+
+
+
 //########## FIN DES ROUTES ###########/
 
 
