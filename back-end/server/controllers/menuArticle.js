@@ -13,7 +13,7 @@ var create = (req,res)=>{
     
     Menus.findOne({_id:req.body.menu_id})
     .then(menu =>{
-        Article.findOne({_id:req.body.article_id})
+        Articles.findOne({_id:req.body.article_id})
         .then(article=>{
             article.menus.push(menu);
             article.save();
@@ -31,47 +31,40 @@ var create = (req,res)=>{
 
 
 // Liste des articles par menu
+var menusArticles = [];
 var getAll = (req,res)=>{
     Menus.find()
         .then((menus)=>{
-            var menuArticles = [];
+
+           
            
             menus.forEach(menu => {
-                
-                var menuArticle = new Object();
-                menuArticle.jourMenu = menu.jourMenu;
-                menuArticle.articles = Array;
-                            
-                
-                 var articles = [];
-                if(menu.article.length >0){
-                      menu.article.forEach(article_id => {
-                    Articles.findOne({_id:article_id})
-                            .then(article => {
-                               
-                                articles.push(article.libelle);
-                                console.log(article.libelle);
-                                
-                            })
-                            .catch(err => {res.status(400).send(err);})
-                            
-                    });
-                }
-                menuArticle.articles = articles;
-                // menuArticle.articles = ['hhd','ss'];
-                
-                // menuArticle.articles = articles;
-                menuArticles.push(menuArticle);
+                var menuArticles = new Object();
+                menuArticles.menu = menu;
+
+              Articles.find({_id: {$in : menu.article}})
+                      .then(articles=>{
+                                                
+                        menuArticles.articles = articles;
+                        menusArticles.push(menuArticles);
+                      }).catch(err=>{res.status(400).send(err);});
+              
 
             });
 
-            console.log(menuArticles);
+            var func = ()=>{res.status(200).send(menusArticles);}
 
-            res.status(200).send(menus);
+
+            setTimeout(func,5000)
+            
+            
+            
             })
         .catch(err=>{
             res.status(400).send(err);
         })
+        
+
 }
 
 
