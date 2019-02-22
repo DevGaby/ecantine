@@ -27,15 +27,10 @@ export class UserService {
   private readonly usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public readonly usersObservable: Observable<User[]>;
 
-  users: User[] =
-  [
-    new User ('1aze', 'aa@aa.com', '1234', 'Camille', 'GARNIER', 20),
-    new User ('2', 'bb@bb.com', '1234', 'Frederic', 'DUPONT', 0),
-  ];
-
-  emails: User[];
-
   constructor (private httpClient: HttpClient) {
+
+    this.usersObservable = this.usersSubject.asObservable();
+
     this.getUsers().subscribe(data => {
 
       const users: User[] = _.map(data, (user, index) => {
