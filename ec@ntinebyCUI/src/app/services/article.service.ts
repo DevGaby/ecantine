@@ -32,13 +32,12 @@ export class ArticleService {
     this.articlesObservable = this.articlesSubject.asObservable();
     
     this.getArticles().subscribe(data => {
+
       const articles: Article[] = _.map(data, (article, index) => {
         const id: string = index.toString();
         return { id , ...article };
       });
-
-      this.articlesSubject.value.push(...articles);
-      this.articlesSubject.next(this.articlesSubject.value);
+      this.articlesSubject.next(articles);
     });
   }
 

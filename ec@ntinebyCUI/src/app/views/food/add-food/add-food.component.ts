@@ -19,9 +19,9 @@ export class AddFoodComponent implements OnInit {
   onSubmit(form: NgForm) {  
 
     // test
-    if (form.form.value.name === "")
+    if (form.form.value.libelle === "")
     {
-      console.log('name is empty');
+      console.log('libelle is empty');
       return;
     }
 

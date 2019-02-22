@@ -1,9 +1,9 @@
-<h1>MENUS HEBDO {{ weeklyTitle | weeklyDaysFormatString }}</h1><hr><br>
+<h1>MENUS HEBDO {{ weeklyDays | weeklyDaysFormatString }}</h1><hr><br>
 <!-- <div class="row justify-content-end"><button type="button" (click)="saveWeeklyMenus()" class="col-sm-3 btn btn-xs btn-block btn-outline-success mx-3 mb-1">Save</button></div> -->
 <div class="card-deck mb-3 text-center">
   <div class="card mb-4 box-shadow">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal">{{ weeklyTitle.monday | dateFormatString }}</h4>
+      <h4 class="my-0 font-weight-normal">{{ weeklyDays.monday | dateFormatString }}</h4>
     </div>
     <div class="card-body">
         <div class="form-group row">
@@ -59,7 +59,7 @@
 
   <div class="card mb-4 box-shadow">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal">{{ weeklyTitle.tuesday | dateFormatString }}</h4>
+      <h4 class="my-0 font-weight-normal">{{ weeklyDays.tuesday | dateFormatString }}</h4>
     </div>
     <div class="card-body">
         <div class="form-group row">
@@ -118,7 +118,7 @@
 
   <div class="card mb-4 box-shadow">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal">{{ weeklyTitle.wednesday | dateFormatString }}</h4>
+      <h4 class="my-0 font-weight-normal">{{ weeklyDays.wednesday | dateFormatString }}</h4>
     </div>
     <div class="card-body">
         <div class="form-group row">
@@ -173,7 +173,7 @@
 
   <div class="card mb-4 box-shadow">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal">{{ weeklyTitle.thursday | dateFormatString }}</h4>
+      <h4 class="my-0 font-weight-normal">{{ weeklyDays.thursday | dateFormatString }}</h4>
     </div>
     <div class="card-body">
         <div class="form-group row">
@@ -232,7 +232,7 @@
   
   <div class="card mb-4 box-shadow">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal">{{ weeklyTitle.friday | dateFormatString }}</h4>
+      <h4 class="my-0 font-weight-normal">{{ weeklyDays.friday | dateFormatString }}</h4>
     </div>
     <div class="card-body">
         <div class="form-group row">

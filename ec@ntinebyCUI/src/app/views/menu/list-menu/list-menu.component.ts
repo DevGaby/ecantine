@@ -15,6 +15,8 @@ export class ListMenuComponent implements OnInit {
 
   ngOnInit() {
     this.sessionService.weeklyDaysObservable.subscribe(data => this.today.setTime(data.today.getTime()));
+
+    // display menuArticles of today
   }
 
 }
