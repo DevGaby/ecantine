@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AddFoodComponent } from './add-food/add-food.component';
+import { UpdateFoodComponent } from './update-food/update-food.component';
 
 
 const routes: Routes = [
@@ -13,15 +14,28 @@ const routes: Routes = [
       },
       children: [
         {
-          path: '',
-          redirectTo: 'ajouter-plat'
+          path: 'gerer-plat/modifier-plat/:id',
+          redirectTo: 'modifier-plat/:id'
         },
         {
-          path: 'ajouter-plat',
+          path: '',
+          redirectTo: 'gerer-plat'
+        },
+        {
+          path: 'gerer-plat',
           component: AddFoodComponent,
           data: {
-            title: 'Ajouter un Plat'
+            title: 'Gestion des Plats'
+          },
+          
+        },
+        {
+          path: 'modifier-plat/:id',
+          component: UpdateFoodComponent,
+          data: {
+            title: 'Modifier un Plat'
           }
+          
         }
       ]
     }

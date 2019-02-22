@@ -50,6 +50,9 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PasswordComponent } from './password/password.component';
 import { MessageModule } from './views/message/message.module';
 
+// Import des services
+import {ArticleService} from './services/article.service';
+
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr);
 
@@ -83,8 +86,9 @@ registerLocaleData(localeFr);
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+      },
+    ArticleService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

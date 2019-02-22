@@ -3,23 +3,23 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <strong>Nouveau Plat</strong>
+          <strong>Nouveau Plat {{plat}}</strong>
         </div>
         <div class="card-body">
-          <form (ngSubmit)="addArticle(f.value)" #f="ngForm"  enctype="multipart/form-data" class="form-horizontal">
+          <form (ngSubmit)="updateArticle(f.value)" #f="ngForm"  enctype="multipart/form-data" class="form-horizontal">
             
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="idlibelle">Libellé du plat</label>
               <div class="col-md-9">
-                <input type="text" id="idlibelle" name="libelle" [(ngModel)]="libelle" class="form-control" placeholder="Libellé" ngModel>
+                <input type="text" id="idlibelle" name="libelle"   [(ngModel)]="libelle" class="form-control" placeholder="{{article.libelle}}" >
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="idcategory">Catégorie</label>
               <div class="col-md-9">
-                <select id="idcategory" name="category" [(ngModel)]="category" class="form-control" ngModel>
-                  <option value="Entrée">Entrée</option>
+                <select id="idcategory" name="category" [(ngModel)]="category" class="form-control" >>
+                  <option default value="Entrée">Entrée</option>
                   <option value="Résistance">Résistance</option>
                   <option value="Dessert">Dessert</option>                
                 </select>             
@@ -29,14 +29,14 @@
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="idprice">Prix</label>
               <div class="col-md-9">
-                <input type="number" id="idprice" name="price" [(ngModel)]="price" class="form-control" placeholder="Prix" ngModel>
+                <input type="number" id="idprice" name="price" [(ngModel)]="price" class="form-control" placeholder="{{article.price}}" >
               </div>
             </div>
             
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="iddescription">Description</label>
               <div class="col-md-9">
-                <textarea rows="5" id="iddescription" name="description" [(ngModel)]="description"  class="form-control" placeholder="Description" ngModel></textarea>
+                <textarea rows="5" id="iddescription" name="description" [(ngModel)]="description"  class="form-control" placeholder="{{article.description}}" ></textarea>
               </div>
             </div>
           
@@ -58,33 +58,3 @@
     </div><!--/.col-->
   </div><!--/.row-->
   </div>
-<hr>
-<h2><p class="text-info">LISTE DES PLATS</p></h2>
-<hr><br>
-<div class="row">
-  <div class="col-lg-8">
-    <table datatable class="row-border hover">
-      <thead>
-        <tr>
-          <th>Libellé</th>
-          <th>Catégorie</th>
-          <th>Prix</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let article of articles">
-          <td>{{article.libelle}}</td>
-          <td>{{article.category}}</td>
-          <td>{{article.price}}</td>
-          <td>{{article.description}}</td>
-          <td><button  (click)="deleteArticle(article._id)" class="btn btn-danger delete">Suppimer</button>  &nbsp;           
-            <a [routerLink]="['modifier-plat',article._id]" class="btn btn-success">Modifier</a>             
-          </td>
-        </tr>
-      
-      </tbody>
-    </table>
-  </div>
-</div>

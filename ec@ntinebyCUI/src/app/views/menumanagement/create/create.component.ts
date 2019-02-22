@@ -31,11 +31,11 @@ export class CreateComponent implements OnInit {
   ngOnInit() {
     this.SessionService.weeklyDaysObservable.subscribe(data => this.weeklyTitle = data);
 
-    this.articleService.articlesObservable.subscribe(data => {
-      this.entrees.splice(0, this.entrees.length, ..._.filter(data, { category: 'Entrée'}));
-      this.resistances.splice(0, this.resistances.length, ..._.filter(data, { category: 'Résistance'}));
-      this.desserts.splice(0, this.desserts.length, ..._.filter(data, { category: 'Dessert'}));
-    });
+    // this.articleService.articlesObservable.subscribe(data => {
+    //   this.entrees.splice(0, this.entrees.length, ..._.filter(data, { category: 'Entrée'}));
+    //   this.resistances.splice(0, this.resistances.length, ..._.filter(data, { category: 'Résistance'}));
+    //   this.desserts.splice(0, this.desserts.length, ..._.filter(data, { category: 'Dessert'}));
+    // });
   }
 
   addToMenu(id: string, dateMenu: number)

@@ -53,8 +53,8 @@ export const navItems = [
     icon: 'icon-note'
   },
   {
-    name: 'Créer Plat',
-    url: '/gestion-plat/ajouter-plat',
+    name: 'Gérer Plats',
+    url: '/gestion-plat/gerer-plat',
     icon: 'icon-pencil'
   },
 
