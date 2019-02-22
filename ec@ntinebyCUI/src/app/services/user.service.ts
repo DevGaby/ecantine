@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { throwError as ObservableThrowError, Observable } from 'rxjs';
+import { throwError as ObservableThrowError, Observable, BehaviorSubject } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user';
 import { log } from 'util';
+
+import * as _ from 'lodash';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,15 +24,23 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/users';
 })
 export class UserService {
 
-  users: User[] =
-  [
-    new User ('1aze', 'aa@aa.com', '1234', 'Camille', 'GARNIER', 20),
-    new User ('2', 'bb@bb.com', '1234', 'Frederic', 'DUPONT', 0),
-  ];
+  private readonly usersSubject: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  public readonly usersObservable: Observable<User[]>;
 
-  emails: User[];
+  constructor (private httpClient: HttpClient) {
 
-  constructor ( private httpClient: HttpClient ) { }
+    this.usersObservable = this.usersSubject.asObservable();
+
+    this.getUsers().subscribe(data => {
+
+      const users: User[] = _.map(data, (user, index) => {
+        const id: string = index.toString();
+        return { id, ...data };
+      });
+
+      this.usersSubject.next(users);
+    });
+  }
 
   //#region CREATE
   // Add a user in users' table

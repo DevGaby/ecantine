@@ -16,7 +16,7 @@ import * as _ from 'lodash';
 })
 export class CreateComponent implements OnInit {
 
-  weeklyTitle: WeeklyDays;
+  weeklyDays: WeeklyDays;
 
   // split by category
   readonly entrees: Article[] = [];
@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
     private articleService: ArticleService) { }
 
   ngOnInit() {
-    this.SessionService.weeklyDaysObservable.subscribe(data => this.weeklyTitle = data);
+    this.SessionService.weeklyDaysObservable.subscribe(data => this.weeklyDays = data);
 
     // this.articleService.articlesObservable.subscribe(data => {
     //   this.entrees.splice(0, this.entrees.length, ..._.filter(data, { category: 'Entrée'}));
