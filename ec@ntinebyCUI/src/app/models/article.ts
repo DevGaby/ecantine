@@ -3,6 +3,7 @@ export class Article {
         public id?: string,
         public libelle?: string,
         public description?: string,
-        public price?: number
+        public price?: number,
+        public category?: string
     ) {}
 }

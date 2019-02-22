@@ -7,7 +7,7 @@ import { MessageModule } from '../../views/message/message.module';
 @NgModule({
     imports: [
         DefaultLayoutRoutingModule,
-        MessageModule,
+        MessageModule
     ],
     declarations: [
         DefaultLayoutComponent,

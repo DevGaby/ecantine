@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../../../services/session.service';
 
 @Component({
   selector: 'app-list-menu',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListMenuComponent implements OnInit {
 
-  constructor() { }
+  readonly today: Date = new Date();
+
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
+    this.sessionService.weeklyDaysObservable.subscribe(data => this.today.setTime(data.today.getTime()));
   }
 
 }

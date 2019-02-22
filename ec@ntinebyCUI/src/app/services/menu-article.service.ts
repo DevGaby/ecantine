@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { MenuArticle } from '../models/menu-article';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Menu } from '../models/menu';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,91 +13,91 @@ const httpOptions = {
 
 // Default url for users'table
 // Pour la voir rajouter.json
-const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/menus';
+const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/menuArticles';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class MenuArticleService {
 
   constructor ( private httpClient: HttpClient ) { }
 
   //#region CREATE
   // Add a user in users' table
-  addMenu(menu: Menu): Observable<Menu>
+  addMenuArticle(menuArticle: MenuArticle): Observable<MenuArticle>
   {
     return this.httpClient
-      .post<Menu>(defaultUserUrl + '.json', menu, httpOptions)
+      .post<MenuArticle>(defaultUserUrl + '.json', menuArticle, httpOptions)
       .pipe(
         tap(data =>
           {
             data;
-            console.log('addMenu success');
+            console.log('addMenuArticle success');
           }),
-        catchError(this.handleError<Menu>('addMenu'))
+        catchError(this.handleError<MenuArticle>('addMenuArticle'))
       );
   }
   //#endregion CREATE
 
   //#region READ
   // Get user where key equals id
-  getMenu(id: string): Observable<Menu[]>
+  getMenuArticle(id: string): Observable<MenuArticle[]>
   {
     return this.httpClient
-      .get<Menu[]>(defaultUserUrl + '/' + id + '.json')
+      .get<MenuArticle[]>(defaultUserUrl + '/' + id + '.json')
       .pipe(
         tap(data =>
           {
             data;
-            console.log('getMenu success');
+            console.log('getMenuArticle success');
           }),
-        catchError(this.handleError('getMenu', []))
+        catchError(this.handleError('getMenuArticle', []))
       );
   }
 
   // Get all user in users' table
-  getMenus(): Observable<Menu[]>
+  getMenuArticles(): Observable<MenuArticle[]>
   {
     return this.httpClient
-      .get<Menu[]>(defaultUserUrl + '.json')
+      .get<MenuArticle[]>(defaultUserUrl + '.json')
       .pipe(
         tap(data =>
           {
             data;
-            console.log('getMenus success');
+            console.log('getMenuArticles success');
           }),
-        catchError(this.handleError('getMenus', []))
+        catchError(this.handleError('getMenuArticles', []))
     );
   }
   //#endregion READ
 
   //#region UPDATE
-  updateMenu(menu: Menu): Observable<Menu>
+  updateMenuArticle(menuArticle: MenuArticle): Observable<MenuArticle>
   {
-    const { id } = menu;
+    const { id } = menuArticle;
     return this.httpClient
-      .patch<Menu>(defaultUserUrl + '/' + id + '.json', menu)
+      .patch<MenuArticle>(defaultUserUrl + '/' + id + '.json', menuArticle)
       .pipe(
         tap(data =>
           {
-            console.log('updateMenu success');
+            console.log('updateMenuArticle success');
           }),
-        catchError(this.handleError<Menu>('updateMenu'))
+        catchError(this.handleError<MenuArticle>('updateMenuArticle'))
       );
   }
   //#endregion UPDATE
 
   //#region DELETE
-  deleteMenu(id: string): Observable<Menu>
+  deleteMenuArticle(id: string): Observable<MenuArticle>
   {
     return this.httpClient
-      .delete<Menu>(defaultUserUrl + '/' + id + '.json')
+      .delete<MenuArticle>(defaultUserUrl + '/' + id + '.json')
       .pipe(
         tap(data =>
           {
-            console.log('deleteMenu success');
+            console.log('deleteMenuArticle success');
           }),
-        catchError(this.handleError<Menu>('deleteMenu'))
+        catchError(this.handleError<MenuArticle>('deleteMenuArticle'))
       );
   }
   //#endregion DELETE

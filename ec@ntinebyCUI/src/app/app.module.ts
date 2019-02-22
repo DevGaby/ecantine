@@ -1,7 +1,9 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, registerLocaleData } from '@angular/common';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -20,8 +22,6 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-
-
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,7 +42,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 // Import des 3 components liés a l'authentification
 import { ConnexionComponent } from './connexion/connexion.component';
@@ -50,10 +50,14 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PasswordComponent } from './password/password.component';
 import { MessageModule } from './views/message/message.module';
 
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
+
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -64,7 +68,7 @@ import { MessageModule } from './views/message/message.module';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     AppComponent,
@@ -75,8 +79,7 @@ import { MessageModule } from './views/message/message.module';
     RegisterComponent,
     ConnexionComponent,
     InscriptionComponent,
-    PasswordComponent,
-
+    PasswordComponent
   ],
   providers: [{
     provide: LocationStrategy,

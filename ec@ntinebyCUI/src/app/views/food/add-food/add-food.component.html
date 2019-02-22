@@ -6,44 +6,53 @@
           <strong>Nouveau Plat</strong>
         </div>
         <div class="card-body">
-          <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm" enctype="multipart/form-data" class="form-horizontal">
+            
             <div class="form-group row">
-              <label class="col-md-3 col-form-label">Libellé du plat</label>
+              <label class="col-md-3 col-form-label" for="idlibelle">Libellé du plat</label>
               <div class="col-md-9">
-                <input type="text" id="text-input" name="text-input" class="form-control" placeholder="Libellé">
+                <input type="text" id="idlibelle" name="libelle" class="form-control" placeholder="Libellé" ngModel>
               </div>
             </div>
+
             <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="text-input">Catégorie</label>
+              <label class="col-md-3 col-form-label" for="idcategory">Catégorie</label>
               <div class="col-md-9">
-                <select id="selectCategory" name="selectCategory" class="form-control">
-                  <option value="0">Entrée</option>
-                  <option value="1">Résistance</option>
-                  <option value="2">Dessert</option>                
+                <select id="idcategory" name="category" class="form-control" ngModel>
+                  <option value="Entrée">Entrée</option>
+                  <option value="Résistance">Résistance</option>
+                  <option value="Dessert">Dessert</option>                
                 </select>             
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-md-3 col-form-label">Prix</label>
+              <label class="col-md-3 col-form-label" for="idprice">Prix</label>
               <div class="col-md-9">
-                <input type="text" id="text-input" name="text-input" class="form-control" placeholder="Prix">
+                <input type="number" id="idprice" name="price" class="form-control" placeholder="Prix" ngModel>
               </div>
             </div>
             
-          
             <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="iddescription">Description</label>
+              <div class="col-md-9">
+                <textarea rows="5" id="iddescription" name="description" class="form-control" placeholder="Description" ngModel></textarea>
+              </div>
+            </div>
+          
+            <!-- <div class="form-group row">
               <label class="col-md-3 col-form-label" for="file-multiple-input">Photo du plat</label>
               <div class="col-md-9">
                 <input type="file" id="file-multiple-input" name="file-multiple-input" multiple>
               </div>
+            </div> -->
+
+            <div class="card-footer">
+              <div class="form-actions">              
+                <button type="submit" class="btn btn-success">Soumettre</button>             
+              </div>          
             </div>
           </form>
-        </div>
-        <div class="card-footer">
-            <div class="form-actions">              
-              <button type="submit" class="btn btn-success">Soumettre</button>             
-            </div>          
         </div>
     </div>   
     </div><!--/.col-->

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Article } from '../models/article';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+
+import * as _ from 'lodash';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,18 +22,37 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/articles';
 })
 export class ArticleService {
 
-  constructor ( private httpClient: HttpClient ) { }
+  private articlesSubject: BehaviorSubject<Article[]> = new BehaviorSubject<Article[]>([]);
+  public articlesObservable: Observable<Article[]>;
+
+  constructor ( private httpClient: HttpClient ) {
+
+    console.log('article service');
+
+    this.articlesObservable = this.articlesSubject.asObservable();
+    
+    this.getArticles().subscribe(data => {
+      const articles: Article[] = _.map(data, (article, index) => {
+        const id: string = index.toString();
+        return { id , ...article };
+      });
+
+      this.articlesSubject.value.push(...articles);
+      this.articlesSubject.next(this.articlesSubject.value);
+    });
+  }
 
   //#region CREATE
   // Add a user in users' table
   addArticle(article: Article): Observable<Article>
   {
     return this.httpClient
-      .post<Article>(defaultUserUrl + '.json', article, httpOptions)
+      .post<any>(defaultUserUrl + '.json', article, httpOptions)
       .pipe(
         tap(data =>
           {
-            data;
+            this.articlesSubject.next(_.concat(this.articlesSubject.value, { id: data.name, ...article }))
+
             console.log('addArticle success');
           }),
         catchError(this.handleError<Article>('addArticle'))
