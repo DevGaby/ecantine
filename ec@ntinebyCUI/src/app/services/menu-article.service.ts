@@ -25,12 +25,11 @@ export class MenuArticleService {
   private readonly menuArticlesSubject: BehaviorSubject<MenuArticle[]> = new BehaviorSubject<MenuArticle[]>([]);
   public readonly menuArticlesObservable: Observable<MenuArticle[]>;
 
-  constructor(private httpClient: HttpClient,
-     private menuArticleService: MenuArticleService) {
+  constructor(private httpClient: HttpClient) {
     this.menuArticlesObservable = this.menuArticlesSubject.asObservable();
 
     // retrieve menu articles
-    this.menuArticleService.getMenuArticles().subscribe(data => {
+    this.getMenuArticles().subscribe(data => {
 
       const menuArticles: MenuArticle[] = _.map(data, (menuArticle, index) => {
         const id: string = index.toString();
@@ -38,7 +37,6 @@ export class MenuArticleService {
       });
 
       this.menuArticlesSubject.next(menuArticles);
-
      });
     
   }

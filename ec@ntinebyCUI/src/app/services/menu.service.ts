@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Menu } from '../models/menu';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+
+import * as _ from 'lodash';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,7 +22,24 @@ const defaultUserUrl = 'https://ecantine-41bcc.firebaseio.com/menus';
 })
 export class MenuService {
 
-  constructor ( private httpClient: HttpClient ) { }
+  private readonly menusSubject: BehaviorSubject<Menu[]> = new BehaviorSubject<Menu[]>([]);
+  public readonly menusObservable: Observable<Menu[]>;
+
+  constructor (private httpClient: HttpClient) {
+
+      this.menusObservable = this.menusSubject.asObservable();
+
+      // retrieve menus
+      this.getMenus().subscribe(data => {
+
+        const menus: Menu[] = _.map(data, (menu, index) => {
+          const id: string = index.toString();
+          return { id, ...data};
+        });
+
+        this.menusSubject.next(menus);
+      });
+  }
 
   //#region CREATE
   // Add a user in users' table
