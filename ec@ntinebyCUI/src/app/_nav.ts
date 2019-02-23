@@ -48,7 +48,7 @@ export const navItems = [
     icon: 'icon-check',
   },
   {
-    name: 'Créer Menu',
+    name: 'Gérer Menu',
     url: '/gestion-menu/creer-menu',
     icon: 'icon-note'
   },

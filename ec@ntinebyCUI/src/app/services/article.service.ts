@@ -13,6 +13,8 @@ const defaultUserUrl = 'http://127.0.0.1:3000/article';
 export class ArticleService {
 
 url = 'http://127.0.0.1:3000/article';
+urlMenu = 'http://127.0.0.1:3000/menu';
+urlMenuArticle = 'http://127.0.0.1:3000/menu-article';
 
   constructor ( private http: HttpClient ) {
   }
@@ -60,4 +62,33 @@ deleteArticle(id:String){
   return this.http.delete(this.url+'/'+id, this.httpOptions );
 }
 
+getArticleByCategory(category:String){
+  return this.http.get(this.url+'/'+category+'/category');
+}
+
+getMenuByDay(day:String){
+  return this.http.get(this.urlMenu+'/'+day+'/day');
+}
+
+addMenuArticle(articleId : any, menuId:any){
+  
+  let body = {
+    menu_id : menuId,
+    article_id : articleId,
+    
+  }
+
+  return this.http.post(this.urlMenuArticle, body, this.httpOptions );
+}
+
+getMenuArticles(menuId:any, category:String){
+  
+  let body = {
+    menu_id : menuId,
+    category :category ,
+    
+  }
+
+  return this.http.post(this.urlMenuArticle+'s', body, this.httpOptions );
+}
 }
