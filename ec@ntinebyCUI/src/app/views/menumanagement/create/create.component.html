@@ -18,10 +18,12 @@
         </div>
   
       <h3>Les entrées</h3>
-      <ul class="list-unstyled mt-3 mb-4 col-4 offset-4">
-        <li *ngFor="let entr of entreesLundi" >{{ entr.libelle}}  <button class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
-        <hr></li>   
-      </ul>
+      <div id="reloadDiv">
+        <ul class="list-unstyled mt-3 mb-4 col-4 offset-4">
+          <li *ngFor="let entr of entreesLundi" >{{ entr.libelle}}  <button class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>   
+        </ul>
+    </div>
       <hr>
 
       <div class="form-group row">

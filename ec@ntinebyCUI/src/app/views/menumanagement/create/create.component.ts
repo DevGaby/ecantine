@@ -125,8 +125,8 @@ initMenu(){
     
     this.articleService.addMenuArticle(article_id,menu_id)
       .subscribe(
-        data => { console.log(data);
-          this.articleService.getMenuArticles(this.lundi['_id'],"entree").subscribe(data => { this.entreesLundi = data['articles']; console.log(data);},err => { console.log(err);});        },
+        data => { 
+          $("#reloadDiv").load(location.href + " #reloadDiv");        },
         err => { console.log(err);
         }
       );
