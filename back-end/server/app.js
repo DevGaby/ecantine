@@ -2,10 +2,11 @@
 var express = require('express');
 const {mongoose} = require('./db/mongoose');
 var bodyParser = require('body-parser'); 
-
+var cors = require('cors')
 var app = express();
-app.use(bodyParser.urlencoded({extended:false}));
 
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cors())
 // ***** Déclaration des controllers
 var articleController = require('./controllers/article');
 var userController = require('./controllers/user');
@@ -25,7 +26,7 @@ app.get('/home',(req,res)=>{
     app.get('/articles',articleController.getAll);
 
     // Ajout d'un article
-    app.post('/article',articleController.create);
+    app.post('/article',bodyParser.json(),articleController.create);
 
     // Supression d'un article 
     app.delete('/article/:id',articleController.deleteById);
@@ -33,8 +34,11 @@ app.get('/home',(req,res)=>{
     //Selection d'un article 
     app.get('/article/:id',articleController.findById);
 
+    //Selection d'un article 
+    app.get('/article/:category/category',articleController.findByCategory);
+    
     // Modification d'un article 
-    app.put('/article/:id',articleController.update);
+    app.put('/article/:id',bodyParser.json(),articleController.update);
 
 //---------- USER----------
 
@@ -74,6 +78,9 @@ app.get('/home',(req,res)=>{
     // Supression d'un menu 
     app.delete('/menu/:id',menuController.deleteById);
 
+    //Selection d'un menu par jour
+    app.get('/menu/:day/day',menuController.findByDay);
+
     //Selection d'un menu 
     app.get('/menu/:id',menuController.findById);
 
@@ -84,12 +91,15 @@ app.get('/home',(req,res)=>{
 //------------ MENUS-ARTICLES -------------
 
     // Ajout d'un article dans un menu
-    app.post('/menu-article',menuArticleController.create);
+    app.post('/menu-article',bodyParser.json(),menuArticleController.create);
 
     // Liste des articles par menu
     app.get('/menu-articles',menuArticleController.getAll);
 
+    //  Liste des articles par category d'un menu
+    app.post('/menu-articles',bodyParser.json(),menuArticleController.getMenuArticleByCategory);
 
+    
 
 //########## FIN DES ROUTES ###########/
 

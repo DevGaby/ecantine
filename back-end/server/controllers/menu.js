@@ -35,6 +35,18 @@ var create = (req,res)=>{
 }
 
 
+// Selectionner un menu par jour
+
+var findByDay = (req,res)=>{
+    menus.findOne({jourMenu:req.params.day}).
+    then(menu=>{
+        res.status(200).send(menu);
+    })
+    .catch(err=>{
+        res.status(400).send(err);
+    })
+}
+
 // Selectionner un menu
 
 var findById = (req,res)=>{
@@ -79,5 +91,6 @@ module.exports = {
     getAll,
     deleteById,
     findById,
-    update
+    update,
+    findByDay
 }

@@ -10,6 +10,7 @@ var create = (req,res)=>{
         price: req.body.price,
         category:req.body.category
     });
+console.log(req);
 
     article.save()
     .then(doc => {
@@ -31,6 +32,19 @@ var getAll = (req,res)=>{
         res.status(400).send(err);
     })
 }
+// Selectionner les articles par category
+
+var findByCategory = (req,res)=>{
+    articles.find({category:req.params.category}).
+    then(articles=>{
+        res.status(200).send(articles);
+    })
+    .catch(err=>{
+        res.status(400).send(err);
+    })
+}
+
+
 // Selectionner un article
 
 var findById = (req,res)=>{
@@ -77,5 +91,6 @@ module.exports = {
     getAll,
     deleteById,
     findById,
-    update
+    update,
+    findByCategory
 }

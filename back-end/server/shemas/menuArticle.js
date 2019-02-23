@@ -19,7 +19,6 @@ var MenuSchema = new Schema({
 var ArticleSchema = new Schema({
     libelle : {
         type:String,
-        required:true,
         unique:true,
     },
     description:{
@@ -27,11 +26,9 @@ var ArticleSchema = new Schema({
     },
     price:{
         type:Number,
-        required:true
     },
     category:{
         type:String,
-        required:true
     },
     menus: [{ type:Schema.ObjectId, ref:"Menu", childPath:"article"}]
 });

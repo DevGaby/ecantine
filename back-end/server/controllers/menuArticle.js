@@ -36,8 +36,6 @@ var getAll = (req,res)=>{
     Menus.find()
         .then((menus)=>{
 
-           
-           
             menus.forEach(menu => {
                 var menuArticles = new Object();
                 menuArticles.menu = menu;
@@ -55,7 +53,7 @@ var getAll = (req,res)=>{
             var func = ()=>{res.status(200).send(menusArticles);}
 
 
-            setTimeout(func,5000)
+            setTimeout(func,2000)
             
             
             
@@ -64,9 +62,41 @@ var getAll = (req,res)=>{
             res.status(400).send(err);
         })
         
-
 }
 
+
+// Liste des articles par category d'un menu
+
+var getMenuArticleByCategory = (req,res)=>{
+    Menus.findOne({_id:req.body.menu_id})
+        .then((menu)=>{
+console.log(menu);
+
+                var menuArticles = new Object();
+                //menuArticles.menu = menu;
+
+              Articles.find({_id: {$in : menu.article},category:req.body.category})
+                      .then(articles=>{
+                                                
+                        menuArticles.articles = articles;
+                      }).catch(err=>{res.status(400).send(err);});
+              
+
+
+
+            var func = ()=>{res.status(200).send(menuArticles);}
+
+
+            setTimeout(func,1000)
+            
+            
+            
+            })
+        .catch(err=>{
+            res.status(400).send(err);
+        })
+        
+}
 
 
 // Selectionner un menu
@@ -113,5 +143,6 @@ module.exports = {
     getAll,
     deleteById,
     findById,
-    update
+    update,
+    getMenuArticleByCategory
 }
