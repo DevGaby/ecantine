@@ -41,7 +41,11 @@ export class CreateComponent implements OnInit {
     public resistancesJeudi;
     public resistancesVendredi;
   public desserts;
-
+    public dessertsLundi;
+    public dessertsMardi;
+    public dessertsMercredi;
+    public dessertsJeudi;
+    public dessertsVendredi;
   public lundi;
   public mardi;
   public mercredi;
@@ -107,11 +111,28 @@ initMenu(){
       this.lundi = data;  
       this.articleService.getMenuArticles(this.lundi['_id'],"entree").subscribe(data => { this.entreesLundi = data['articles']; },err => { console.log(err);});
       this.articleService.getMenuArticles(this.lundi['_id'],"resistance").subscribe(data => { this.resistancesLundi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.lundi['_id'],"dessert").subscribe(data => { this.dessertsLundi = data['articles']; },err => { console.log(err);});
     },err => { console.log(err);}); 
-  this.articleService.getMenuByDay('Mardi').subscribe(data => { this.mardi = data;},err => { console.log(err);});
-  this.articleService.getMenuByDay('Mercredi').subscribe(data => { this.mercredi = data;},err => { console.log(err);});
-  this.articleService.getMenuByDay('Jeudi').subscribe(data => { this.jeudi = data;},err => { console.log(err);});
-  this.articleService.getMenuByDay('Vendredi').subscribe(data => { this.vendredi = data;},err => { console.log(err);});
+  this.articleService.getMenuByDay('Mardi').subscribe(data => { this.mardi = data;
+      this.articleService.getMenuArticles(this.mardi['_id'],"entree").subscribe(data => { this.entreesMardi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.mardi['_id'],"resistance").subscribe(data => { this.resistancesMardi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.mardi['_id'],"dessert").subscribe(data => { this.dessertsMardi = data['articles']; },err => { console.log(err);});
+  },err => { console.log(err);});
+  this.articleService.getMenuByDay('Mercredi').subscribe(data => { this.mercredi = data;
+      this.articleService.getMenuArticles(this.mercredi['_id'],"entree").subscribe(data => { this.entreesMercredi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.mercredi['_id'],"resistance").subscribe(data => { this.resistancesMercredi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.mercredi['_id'],"dessert").subscribe(data => { this.dessertsMercredi = data['articles']; },err => { console.log(err);});
+  },err => { console.log(err);});
+  this.articleService.getMenuByDay('Jeudi').subscribe(data => { this.jeudi = data;
+      this.articleService.getMenuArticles(this.jeudi['_id'],"entree").subscribe(data => { this.entreesJeudi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.mardi['_id'],"resistance").subscribe(data => { this.resistancesJeudi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.jeudi['_id'],"dessert").subscribe(data => { this.dessertsJeudi = data['articles']; },err => { console.log(err);});
+  },err => { console.log(err);});
+  this.articleService.getMenuByDay('Vendredi').subscribe(data => { this.vendredi = data;
+      this.articleService.getMenuArticles(this.vendredi['_id'],"entree").subscribe(data => { this.entreesVendredi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.vendredi['_id'],"resistance").subscribe(data => { this.resistancesVendredi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.vendredi['_id'],"dessert").subscribe(data => { this.dessertsVendredi = data['articles']; },err => { console.log(err);});
+  },err => { console.log(err);});
 
 
 }

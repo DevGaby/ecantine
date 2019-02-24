@@ -46,18 +46,18 @@
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Dessert</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="dessert" id="">
+              <select  class="form-control" name="dessert" id="mondayD">
                   <option *ngFor="let dessert of desserts" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+          <button type="button" (click)="addToMenu(lundi['_id'],'mondayD','mondayDUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
         </div>
   
       <h3>Les desserts</h3>
       <hr>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
-      </ul>
+      <ul class="list-unstyled mt-3 mb-4" id="mondayDUl">
+        <li *ngFor="let dess of dessertsLundi" >{{ dess.libelle}}  <button (click)= "removeToMenu(lundi['_id'], dess._id)" id="{{lundi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>      </ul>
     </div>
   </div>
 
@@ -69,49 +69,52 @@
         <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Entrée</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
+              <select  class="form-control" name="entree" id="tuesdayE">
                   <option *ngFor="let entree of entrees" value="{{ entree._id }}">{{ entree.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
+          <button type="button" (click)="addToMenu(mardi['_id'],'tuesdayE','tuesdayEUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
         </div>
   
       <h3>Les entrées</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
-      </ul>
+      <ul class="list-unstyled mt-3 mb-4" id="tuesdayEUl">
+        <li *ngFor="let entr of entreesMardi" >{{ entr.libelle}}  <button (click)= "removeToMenu(mardi['_id'], entr._id)" id="{{mardi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>      
+      </ul>   
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Résistance</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="resistance" id="">
+              <select  class="form-control" name="resistance" id="tuesdayR">
                   <option *ngFor="let resistance of resistances" value="{{ resistance._id }}">{{ resistance.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
+          <button type="button" (click)="addToMenu(mardi['_id'],'tuesdayR','tuesdayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
         </div>
   
       <h3>Les plats</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="tuesdayRUl">
+        <li *ngFor="let ress of resistancesMardi" >{{ ress.libelle}}  <button (click)= "removeToMenu(mardi['_id'], ress._id)" id="{{mardi['_id']}}{{ress._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Dessert</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="dessert" id="">
+              <select  class="form-control" name="dessert" id="tuesdayD">
                   <option *ngFor="let dessert of desserts" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+          <button type="button" type="button" (click)="addToMenu(mardi['_id'],'tuesdayD','tuesdayDUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
         </div>
   
       <h3>Les desserts</h3>
       <hr>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="tuesdayDUl">
+        <li *ngFor="let dess of dessertsMardi" >{{ dess.libelle}}  <button (click)= "removeToMenu(mardi['_id'], dess._id)" id="{{mardi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
     </div>
   </div>
@@ -128,49 +131,52 @@
         <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Entrée</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
+              <select  class="form-control" name="entree" id="wednesdayE">
                   <option *ngFor="let entree of entrees" value="{{ entree._id }}">{{ entree.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
+          <button type="button" type="button" (click)="addToMenu(mercredi['_id'],'wednesdayE','wednesdayEUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
         </div>
   
       <h3>Les entrées</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="wednesdayEUl">
+        <li *ngFor="let entr of entreesMercredi" >{{ entr.libelle}}  <button (click)= "removeToMenu(mercredi['_id'], entr._id)" id="{{mercredi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Résistance</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="resistance" id="">
+              <select  class="form-control" name="resistance" id="wednesdayI">
                   <option *ngFor="let resistance of resistances" value="{{ resistance._id }}">{{ resistance.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
+          <button type="button" (click)="addToMenu(mercredi['_id'],'wednesdayI','wednesdayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
         </div>
   
       <h3>Les plats</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="wednesdayRUl">
+        <li *ngFor="let ress of resistancesMercredi" >{{ ress.libelle}}  <button (click)= "removeToMenu(mercredi['_id'], ress._id)" id="{{mercredi['_id']}}{{ress._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
-          <label  class="col-sm-4 col-form-label">Dssert</label>
+          <label  class="col-sm-4 col-form-label">Dessert</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="dessert" id="">
+              <select  class="form-control" name="dessert" id="wednesdayD">
                   <option *ngFor="let dessert of desserts" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+          <button type="button"  (click)="addToMenu(mercredi['_id'],'wednesdayD','wednesdayDUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
         </div>
   
       <h3>Les désserts</h3>
       <hr>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="wednesdayDUl">
+        <li *ngFor="let dess of dessertsMercredi" >{{ dess.libelle}}  <button (click)= "removeToMenu(mercredi['_id'], dess._id)" id="{{mercredi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
     </div>
   </div> 
@@ -183,50 +189,53 @@
         <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Entrée</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
+              <select  class="form-control" name="entree" id="thursdayE">
                   <option *ngFor="let entree of entrees" value="{{ entree._id }}">{{ entree.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
+          <button type="button"  (click)="addToMenu(jeudi['_id'],'thursdayE','thursdayEUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
         </div>
   
       <h3>Les entrées</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="thursdayEUl">
+        <li *ngFor="let entr of entreesMercredi" >{{ entr.libelle}}  <button (click)= "removeToMenu(jeudi['_id'], entr._id)" id="{{jeudi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Résistance</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="resistance" id="">
+              <select  class="form-control" name="resistance" id="thursdayR">
                   <option *ngFor="let resistance of resistances" value="{{ resistance._id }}"> {{ resistance.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
+          <button type="button"  (click)="addToMenu(jeudi['_id'],'thursdayR','thursdayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
         </div>
   
       <h3>Les plats</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="thursdayRUl">
+        <li *ngFor="let ress of resistancesMercredi" >{{ ress.libelle}}  <button (click)= "removeToMenu(jeudi['_id'], ress._id)" id="{{jeudi['_id']}}{{ress._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Déssert</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="dessert" id="">
+              <select  class="form-control" name="dessert" id="thursdayD">
                   <option *ngFor="let dessert of desserts" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+          <button type="button" (click)="addToMenu(jeudi['_id'],'thursdayD','thursdayDUl')"  class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
         </div>
   
       <h3>Les désserts</h3>
       <hr>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
-      </ul>
+      <ul class="list-unstyled mt-3 mb-4" id="thursdayDUl">
+        <li *ngFor="let dess of dessertsMercredi" >{{ dess.libelle}}  <button (click)= "removeToMenu(jeudi['_id'], dess._id)" id="{{jeudi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
+      </ul> 
     </div>
   </div>
 </div>
@@ -242,49 +251,52 @@
         <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Entrée</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
+              <select  class="form-control" name="entree" id="fridayE">
                   <option *ngFor="let entree of entrees" value="{{ entree._id }}">{{ entree.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
+          <button type="button" (click)="addToMenu(vendredi['_id'],'fridayE','fridayEUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
         </div>
   
       <h3>Les entrées</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="fridayEUl">
+        <li *ngFor="let entr of entreesVendredi" >{{ entr.libelle}}  <button (click)= "removeToMenu(vendredi['_id'], entr._id)" id="{{vendredi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Résistance</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="resistance" id="">
+              <select  class="form-control" name="resistance" id="fridayR">
                   <option *ngFor="let resistance of resistances" value="{{ resistance._id }}">{{ resistance.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
+          <button type="button" (click)="addToMenu(vendredi['_id'],'fridayR','fridayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
         </div>
   
       <h3>Les plats</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="fridayRUl">
+        <li *ngFor="let ress of resistancesVendredi" >{{ ress.libelle}}  <button (click)= "removeToMenu(vendredi['_id'], ress._id)" id="{{vendredi['_id']}}{{ress._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Dessert</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="dessert" id="">
+              <select  class="form-control" name="dessert" id="fridayD">
                   <option *ngFor="let dessert of desserts" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+          <button type="button" (click)="addToMenu(vendredi['_id'],'fridayD','fridayDUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
         </div>
   
       <h3>Les desserts</h3>
       <hr>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="fridayDUl">
+        <li *ngFor="let dess of dessertsVendredi" >{{ dess.libelle}}  <button (click)= "removeToMenu(vendredi['_id'], dess._id)" id="{{vendredi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
     </div>
   </div>
