@@ -64,13 +64,43 @@ var getAll = (req,res)=>{
         
 }
 
+// Supprimer un article dans un menu
+var deleteMenuArticle = (req,res)=> {
+
+    Menus.findOne({_id:req.body.menu_id})
+    .then((menu)=>{
+
+                    var articles;
+                    articles = menu.article.filter(function(value, index, arr){
+                                    return value != req.body.article_id;
+                                });
+
+                    options = {
+                        article: articles
+                    }                
+                    Menus.findOneAndUpdate({_id:req.body.menu_id}, options)
+                        .then(menu => {
+                            res.status(200).send(menu);
+                        })
+                        .catch(err=>{
+                            res.status(400).send(err);
+                        })    
+        
+        
+        })
+    .catch(err=>{
+        res.status(400).send(err);
+    })
+
+}
+
+
 
 // Liste des articles par category d'un menu
 
 var getMenuArticleByCategory = (req,res)=>{
     Menus.findOne({_id:req.body.menu_id})
         .then((menu)=>{
-console.log(menu);
 
                 var menuArticles = new Object();
                 //menuArticles.menu = menu;
@@ -144,5 +174,6 @@ module.exports = {
     deleteById,
     findById,
     update,
-    getMenuArticleByCategory
+    getMenuArticleByCategory,
+    deleteMenuArticle
 }

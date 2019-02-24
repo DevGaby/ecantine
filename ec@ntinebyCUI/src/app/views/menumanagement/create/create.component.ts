@@ -35,6 +35,11 @@ export class CreateComponent implements OnInit {
     public entreesJeudi;
     public entreesVendredi;
   public resistances;
+    public resistancesLundi;
+    public resistancesMardi;
+    public resistancesMercredi;
+    public resistancesJeudi;
+    public resistancesVendredi;
   public desserts;
 
   public lundi;
@@ -100,7 +105,8 @@ initMenu(){
   .subscribe(data => 
     { 
       this.lundi = data;  
-      this.articleService.getMenuArticles(this.lundi['_id'],"entree").subscribe(data => { this.entreesLundi = data['articles']; console.log(data);},err => { console.log(err);});
+      this.articleService.getMenuArticles(this.lundi['_id'],"entree").subscribe(data => { this.entreesLundi = data['articles']; },err => { console.log(err);});
+      this.articleService.getMenuArticles(this.lundi['_id'],"resistance").subscribe(data => { this.resistancesLundi = data['articles']; },err => { console.log(err);});
     },err => { console.log(err);}); 
   this.articleService.getMenuByDay('Mardi').subscribe(data => { this.mardi = data;},err => { console.log(err);});
   this.articleService.getMenuByDay('Mercredi').subscribe(data => { this.mercredi = data;},err => { console.log(err);});
@@ -110,24 +116,32 @@ initMenu(){
 
 }
 
-  addToMenu(id: string, dateMenu: number)
+
+  removeToMenu(menu_id: any, article_id: any)
   {
-
-  }
-
-  removeToMenu(id: string, dateMenu: number)
-  {
-
-  }
-
-  mondayE(menu_id){
-    var article_id = $( "select#mondayE option:checked" ).val();    
     
+    this.articleService.deleteMenuArticle(menu_id,article_id).subscribe(
+      data => {
+          $('#'+menu_id+article_id).parents('li').remove();
+      },
+      err=> {
+        console.log(err);   
+      }
+    )
+  }
+
+  addToMenu(menu_id, selectId,ulID){
+    var article_id = $( "select#"+selectId+" option:checked" ).val();    
+    var libelle = $( "select#"+selectId+" option:checked" ).text();    
     this.articleService.addMenuArticle(article_id,menu_id)
       .subscribe(
         data => { 
-          $("#reloadDiv").load(location.href + " #reloadDiv");        },
+
+        
+        },
         err => { console.log(err);
+          
+          $('#'+ulID).append('<li>'+libelle+'  <button  class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button><hr></li>');
         }
       );
     

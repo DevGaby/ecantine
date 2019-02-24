@@ -91,4 +91,14 @@ getMenuArticles(menuId:any, category:String){
 
   return this.http.post(this.urlMenuArticle+'s', body, this.httpOptions );
 }
+
+deleteMenuArticle(menuId:any, articleId:any){
+  
+  let body = {
+    menu_id : menuId,
+    article_id :articleId , 
+  }
+
+  return this.http.post(this.urlMenuArticle+'/delete', body, this.httpOptions );
+}
 }

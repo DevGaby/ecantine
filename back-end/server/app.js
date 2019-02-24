@@ -99,6 +99,9 @@ app.get('/home',(req,res)=>{
     //  Liste des articles par category d'un menu
     app.post('/menu-articles',bodyParser.json(),menuArticleController.getMenuArticleByCategory);
 
+    // Supprimer un article dans un menu 
+
+    app.post('/menu-article/delete',bodyParser.json(),menuArticleController.deleteMenuArticle);
     
 
 //########## FIN DES ROUTES ###########/

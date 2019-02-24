@@ -36,23 +36,6 @@ ArticleSchema.plugin(relationship, { relationshipPathName:'menus' });
 
 
 
-
-// Menu.findOne({_id:"5c69b5b06e2666eb9a47a7d5"})
-//     .then(men =>{
-//         Article.findOne({_id:"5c69b5876e2666eb9a47a7c0"})
-//         .then(art=>{
-//             art.menus.push(men);
-//             art.save();
-//         })
-//         .catch(err=>{
-//             console.log(err);
-            
-//         });
-//     })
-//     .catch(err=>{
-//         console.log(err);
-//     })
-
 module.exports = {
     MenuSchema,
     ArticleSchema

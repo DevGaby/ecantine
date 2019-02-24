@@ -14,13 +14,13 @@
               </select>
           </div>
           
-          <button type="button"  (click)="mondayE(lundi['_id'])"  class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
+          <button type="button"  (click)="addToMenu(lundi['_id'],'mondayE','mondayEUl')"  class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
         </div>
   
       <h3>Les entrées</h3>
       <div id="reloadDiv">
-        <ul class="list-unstyled mt-3 mb-4 col-4 offset-4">
-          <li *ngFor="let entr of entreesLundi" >{{ entr.libelle}}  <button class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+        <ul class="list-unstyled mt-3 mb-4 col-4 offset-4" id="mondayEUl" >
+          <li *ngFor="let entr of entreesLundi" >{{ entr.libelle}}  <button (click)= "removeToMenu(lundi['_id'], entr._id)" id="{{lundi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
           <hr></li>   
         </ul>
     </div>
@@ -29,16 +29,17 @@
       <div class="form-group row">
           <label  class="col-sm-4 col-form-label">Résistance</label>
           <div class="col-sm-5">
-              <select  class="form-control" name="resistance" id="">
+              <select  class="form-control" name="resistance" id="mondayR">
                   <option *ngFor="let resistance of resistances" value="{{ resistance._id }}">{{ resistance.libelle }}</option>
               </select>
           </div>
-          <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
+          <button type="button"  (click)="addToMenu(lundi['_id'],'mondayR','mondayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
         </div>
   
       <h3>Les plats</h3>
-      <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a href="" class="material-icons medium cyan-text text-darken-4">delete_forever</a></li>  
+      <ul class="list-unstyled mt-3 mb-4" id="mondayRUl">
+        <li *ngFor="let resis of resistancesLundi" >{{ resis.libelle}}  <button (click)= "removeToMenu(lundi['_id'], resis._id)" id="{{lundi['_id']}}{{resis._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+          <hr></li>
       </ul>
       <hr>
 
