@@ -10,8 +10,8 @@ var create = (req,res)=>{
         firstname:req.body.firstname,
         email:req.body.email,
         password:req.body.password,
-        role:"etudiant",   // a quel moment ajouter le statut ?
-        fund:0,
+        role:req.body.role,   // a quel moment ajouter le statut ?
+        fund:req.body.fund,
     });
 
     user.save()

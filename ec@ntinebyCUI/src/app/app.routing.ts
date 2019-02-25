@@ -104,6 +104,10 @@ export const routes: Routes = [
         loadChildren: './views/food/food.module#FoodModule'
       },
       {
+        path: 'gestion-user',
+        loadChildren: './views/usermanagement/usermanagement.module#UserManagementModule'
+      },
+      {
         path: 'message',
         loadChildren: './views/message/message.module#MessageModule'
       },

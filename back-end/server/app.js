@@ -46,7 +46,7 @@ app.get('/home',(req,res)=>{
     app.get('/users',userController.getAll);
 
     // Ajout d'un user
-    app.post('/user',userController.create);
+    app.post('/user',bodyParser.json(),userController.create);
 
     // Supression d'un user 
     app.delete('/user/:id',userController.deleteById);
@@ -55,7 +55,7 @@ app.get('/home',(req,res)=>{
     app.get('/user/:id',userController.findById);
 
     // Modification d'un user 
-    app.put('/user/:id',userController.update);
+    app.put('/user/:id',bodyParser.json(),userController.update);
 
     // Modification de la cagnotte d'un user 
     app.put('/user/:id/fund',userController.updateFund);

@@ -57,6 +57,11 @@ export const navItems = [
     url: '/gestion-plat/gerer-plat',
     icon: 'icon-pencil'
   },
+  {
+    name: 'Gérer Users',
+    url: '/gestion-user/gerer-user',
+    icon: 'icon-pencil'
+  },
 
   // Fin ajout
 
