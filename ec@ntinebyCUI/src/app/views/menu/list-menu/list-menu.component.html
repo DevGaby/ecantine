@@ -6,155 +6,64 @@
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Menu de la semaine
       </div>
-
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">{{ today | dateFormatString }}</h4>
-      </div>
-      <div class="card-body">
-        <div class="form-group row">
-          <label  class="col-sm-4 col-form-label">Entrée</label>
-            <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
-                <option>entrée 1</option>
-                <option>entrée 2</option>
-                <option>entrée 3</option>
-              </select>
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">{{ today | dateFormatString }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+              <label  class="col-sm-4 col-form-label">Entrée</label>
+              <div class="col-sm-5">
+                  <select  class="form-control" name="entree" id="tuesdayE">
+                      <option *ngFor="let entree of entreesToday" value="{{ entree._id }}">{{ entree.libelle }}</option>
+                  </select>
+              </div>
+              <button type="button" (click)="addToMenu(mardi['_id'],'tuesdayE','tuesdayEUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary">Ajouter</button>
             </div>
-              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-primary" (click)="add()">Ajouter</button>
-        </div>       
-        <h3>Les entrées</h3>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
-        </ul>
-        <hr>
-        <div class="form-group row">
-          <label  class="col-sm-4 col-form-label">Résistance</label>
-            <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
-                <option>résistance 1</option>
-                <option>résistance 2</option>
-                <option>résistance 3</option>
-              </select>
+      
+          <h3>Les entrées</h3>
+          <ul class="list-unstyled mt-3 mb-4" id="tuesdayEUl">
+            <li *ngFor="let entr of entreesMardi" >{{ entr.libelle}}  <button (click)= "removeToMenu(mardi['_id'], entr._id)" id="{{mardi['_id']}}{{entr._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+              <hr></li>      
+          </ul>   
+          <hr>
+    
+          <div class="form-group row">
+              <label  class="col-sm-4 col-form-label">Résistance</label>
+              <div class="col-sm-5">
+                  <select  class="form-control" name="resistance" id="tuesdayR">
+                      <option *ngFor="let resistance of resistancesToday" value="{{ resistance._id }}">{{ resistance.libelle }}</option>
+                  </select>
+              </div>
+              <button type="button" (click)="addToMenu(mardi['_id'],'tuesdayR','tuesdayRUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning">Ajouter</button>
             </div>
-              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-warning" (click)="add()">Ajouter</button>
-        </div>        
-        <h3>Les plats</h3>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
-        </ul>
-        <hr>
-        <div class="form-group row">
-          <label  class="col-sm-4 col-form-label">Dessert</label>
-            <div class="col-sm-5">
-              <select  class="form-control" name="entree" id="">
-                <option>dessert 1</option>
-                <option>dessert 2</option>
-                <option>dessert 3</option>
-              </select>
-            </div>
-              <button type="button" class=" col-sm-3 btn btn-xs btn-block btn-outline-success" (click)="add()">Ajouter</button>
-        </div>       
-        <h3>Les desserts</h3>
-        <hr>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>cho li - <a class="material-icons medium cyan-text text-darken-4" (click)="remove()">delete_forever</a></li>  
+      
+          <h3>Les plats</h3>
+          <ul class="list-unstyled mt-3 mb-4" id="tuesdayRUl">
+            <li *ngFor="let ress of resistancesMardi" >{{ ress.libelle}}  <button (click)= "removeToMenu(mardi['_id'], ress._id)" id="{{mardi['_id']}}{{ress._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+              <hr></li>
           </ul>
-      </div>
+          <hr>
+    
+          <div class="form-group row">
+              <label  class="col-sm-4 col-form-label">Dessert</label>
+              <div class="col-sm-5">
+                  <select  class="form-control" name="dessert" id="tuesdayD">
+                      <option *ngFor="let dessert of dessertsToday" value="{{ dessert._id }}">{{ dessert.libelle }}</option>
+                  </select>
+              </div>
+              <button type="button" type="button" (click)="addToMenu(mardi['_id'],'tuesdayD','tuesdayDUl')" class=" col-sm-3 btn btn-xs btn-block btn-outline-success">Ajouter</button>
+            </div>
+      
+          <h3>Les desserts</h3>
+          <hr>
+          <ul class="list-unstyled mt-3 mb-4" id="tuesdayDUl">
+            <li *ngFor="let dess of dessertsMardi" >{{ dess.libelle}}  <button (click)= "removeToMenu(mardi['_id'], dess._id)" id="{{mardi['_id']}}{{dess._id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash fa-xs"></i></button>
+              <hr></li>
+          </ul>
+        </div>
     </div>
 
-      <!-- <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>LUN</th>
-                <th>MAR</th>
-                <th>MER</th>
-                <th>JEU</th>
-                <th>VEN</th>
-                <th>OPTION</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td>Poulet au curry</td>
-                  <td>Brandade de morue</td>
-                  <td>Spaghetti Bolognaise</td>
-                  <td>Riz & ratatouille</td>
-                  <td>Pizza maguerita</td>
-                  <td>
-                    <span class="badge badge-secondary" [routerLink]="">Editer</span>
-                    <span class="badge badge-danger" [routerLink]="">Supprimer</span>
-                  </td>
-                </tr>
 
-                <tr>
-                  <td>Poulet au curry</td>
-                  <td>Brandade de morue</td>
-                  <td>Spaghetti Bolognaise</td>
-                  <td>Riz & ratatouille</td>
-                  <td>Pizza maguerita</td>
-                  <td>
-                    <span class="badge badge-secondary" [routerLink]="">Editer</span>
-                    <span class="badge badge-danger" [routerLink]="">Supprimer</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Poulet au curry</td>
-                  <td>Brandade de morue</td>
-                  <td>Spaghetti Bolognaise</td>
-                  <td>Riz & ratatouille</td>
-                  <td>Pizza maguerita</td>
-                  <td>
-                    <span class="badge badge-secondary" [routerLink]="">Editer</span>
-                    <span class="badge badge-danger" [routerLink]="">Supprimer</span>
-                  </td>
-                </tr>
-                <tr>
-                <td>Poulet au curry</td>
-                <td>Brandade de morue</td>
-                <td>Spaghetti Bolognaise</td>
-                <td>Riz & ratatouille</td>
-                <td>Pizza maguerita</td>
-                <td>
-                  <span class="badge badge-secondary" [routerLink]="">Editer</span>
-                  <span class="badge badge-danger" [routerLink]="">Supprimer</span>
-                </td>
-              </tr>
-              <tr>
-                  <td>Poulet au curry</td>
-                  <td>Brandade de morue</td>
-                  <td>Spaghetti Bolognaise</td>
-                  <td>Riz & ratatouille</td>
-                  <td>Pizza maguerita</td>
-                  <td>
-                    <span class="badge badge-secondary" [routerLink]="">Editer</span>
-                    <span class="badge badge-danger" [routerLink]="">Supprimer</span>
-                  </td>
-                </tr>
-              </tbody>
-          </table>
-        </div> -->
-
-      
-      <!-- 
-            <div class="col-4">
-                <button class="btn btn-success btn-xs mr-4" [routerLink]="['/detail', beer.key]"> Detail</button>
-                <button class="btn btn-warning btn-xs mr-4" [routerLink]="['/edit', beer.key]"> Editer</button>
-              <button class="btn btn-danger btn-xs" (click)="deleteBeer(beer.key)"> Delete</button>
-            </div>
-          </div>
-          <<tbody>
-            <tr>
-              <td>Poulet au curry</td>
-              <td>Brandade de morue</td>
-              <td>Spaghetti Bolognaise</td>
-              <td>Riz & ratatouille</td>
-              <td>Pizza maguerita</td>
-              <td>
-                <span class="badge badge-success">Active</span>
-              </td>
-            </tr>
-             -->
 
    
   </div><!--/.col-->
